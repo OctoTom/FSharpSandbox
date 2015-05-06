@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>ToolsLibrary</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:LogModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:ToolsLibrary.ChartModule.ChartHelper">
+<summary>
+ Static class wrapping charting library.
+ It allows for method overloading.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:ToolsLibrary.ChartModule.drawChart(FSharp.Charting.ChartTypes.GenericChart)">
+<summary>
+ Draws chart in separate System.Windows.Form.
+ Can be called from console application.
+</summary>
+</member>
+<member name="T:ToolsLibrary.ChartModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:ToolsLibrary.General">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:ToolsLibrary.Random">
+
+</member>
+</members>
+</doc>

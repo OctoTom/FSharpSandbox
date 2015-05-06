@@ -1,0 +1,8 @@
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Debug\Tutorial.XML
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Debug\Tutorial.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Debug\Tutorial.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Debug\FSharp.Core.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Debug\FSharp.Core.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\obj\Debug\Tutorial.fsprojResolveAssemblyReference.cache
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\obj\Debug\Tutorial.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\obj\Debug\Tutorial.pdb

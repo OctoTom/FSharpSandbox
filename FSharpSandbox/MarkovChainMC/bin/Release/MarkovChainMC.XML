@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>MarkovChainMC</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="P:MatrixModule.Matrix.CholeskyDecomp2x2">
+<summary>
+ Cholesky decompositon of 2x2 symmetric matrix with 1.0s on diagonal (i.e. covariant matrix)
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:MatrixModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:MetropolisAlgorithm">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:MyDistributions.normDistPointsCor(MatrixModule.Matrix,System.Double,System.Double)">
+<summary>
+ Infinite sequence of samples of two corelated normally distributed random variables X1 and X2.
+ The joint PDF is described by 2x2 Cov matrix and two values of mean mu.
+</summary>
+</member>
+<member name="P:MyDistributions.normDistPoints">
+<summary>
+ Sequence of non-corelated 2D samples (u1, u2) with standard normal distribution.
+</summary>
+</member>
+<member name="P:MyDistributions.samplesND">
+<summary>
+ Infinite seqvence of 1D samples with standard normal distribution.
+</summary>
+</member>
+<member name="M:MyDistributions.sample``1(Microsoft.FSharp.Core.FSharpFunc{System.Double,``0})">
+<summary>
+ Infinite sequence of 1D samples of with inverse distribution cdfInv.
+</summary>
+</member>
+<member name="P:MyDistributions.samplesUD">
+<summary>
+ Infinite sequence of uniformly distributed random numbers from interval (0.0, 1.0).
+</summary>
+</member>
+<member name="P:MyDistributions.random">
+<summary>
+ .NET Random number generator
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:MyDistributions">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Program">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Sandbox">
+
+</member>
+</members>
+</doc>

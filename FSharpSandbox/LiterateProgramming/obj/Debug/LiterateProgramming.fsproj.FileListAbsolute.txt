@@ -1,0 +1,8 @@
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\LiterateProgramming.exe.config
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\LiterateProgramming.XML
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\LiterateProgramming.exe
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\LiterateProgramming.pdb
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\FSharp.Core.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\bin\Debug\FSharp.Core.xml
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\obj\Debug\LiterateProgramming.exe
+C:\Users\Tomas\OneDrive\FSharpSandbox\LiterateProgramming\obj\Debug\LiterateProgramming.pdb

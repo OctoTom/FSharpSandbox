@@ -1,0 +1,8 @@
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\RealWorldFuncPieChart.exe.config
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\RealWorldFuncPieChart.XML
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\RealWorldFuncPieChart.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\RealWorldFuncPieChart.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\FSharp.Core.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\bin\Release\FSharp.Core.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\obj\Release\RealWorldFuncPieChart.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\obj\Release\RealWorldFuncPieChart.pdb

@@ -1,0 +1,14 @@
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.XML
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.dll
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.pdb
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\bin\Debug\FSharp.Core.dll
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\bin\Debug\FSharp.Core.xml
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.dll
+C:\Users\Tomas\OneDrive\Tech\Projects\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.pdb
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.XML
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\bin\Debug\MiscScripts.pdb
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\bin\Debug\FSharp.Core.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\bin\Debug\FSharp.Core.xml
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.pdb

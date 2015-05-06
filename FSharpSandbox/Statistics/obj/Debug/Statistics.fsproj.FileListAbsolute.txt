@@ -1,0 +1,10 @@
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\Statistics.exe.config
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\Statistics.XML
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\Statistics.exe
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\Statistics.pdb
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\FSharp.Core.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\MathNet.Numerics.dll
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\MathNet.Numerics.xml
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\bin\Debug\FSharp.Core.xml
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\obj\Debug\Statistics.exe
+C:\Users\Tomas\OneDrive\FSharpSandbox\Statistics\obj\Debug\Statistics.pdb

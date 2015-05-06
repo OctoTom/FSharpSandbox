@@ -1,0 +1,8 @@
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\bin\Release\SilverlightLibrarySandbox.XML
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\bin\Release\SilverlightLibrarySandbox.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\bin\Release\SilverlightLibrarySandbox.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\bin\Release\FSharp.Core.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\bin\Release\FSharp.Core.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\obj\Release\SilverlightLibrarySandbox.fsprojResolveAssemblyReference.cache
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\obj\Release\SilverlightLibrarySandbox.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\SilverlightLibrarySandbox\obj\Release\SilverlightLibrarySandbox.pdb

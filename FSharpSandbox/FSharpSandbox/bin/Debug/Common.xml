@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Common</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.ChartModule.ChartHelper">
+<summary>
+ Static class wrapping charting library.
+ It allows for method overloading.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:Common.ChartModule.saveTimeSeries(System.String,System.String,System.Collections.Generic.IEnumerable{System.Tuple{System.DateTime,System.Double}})">
+<summary>
+ Saves the plot to .png file.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:Common.ChartModule.drawChart(FSharp.Charting.ChartTypes.GenericChart)">
+<summary>
+ Draws chart in separate System.Windows.Form.
+ Can be called from console application.
+</summary>
+</member>
+<member name="T:Common.ChartModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Extensions.List">
+
+</member>
+<member name="T:Common.Extensions">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Logging">
+
+</member>
+<member name="M:Common.Misc.isInOpenInterval``1(``0,``0,``0)">
+<summary>
+ Indicates if x is in given interval. Endpoint do not fits in the interval.
+</summary>
+</member>
+<member name="M:Common.Misc.isInClosedInterval``1(``0,``0,``0)">
+<summary>
+ Indicates if x is in given interval. Endpoint fits in the interval.
+</summary>
+</member>
+<member name="M:Common.Misc.fitTo``1(``0,``0,``0)">
+<summary>
+ Fits number into given inverval. Returns appropriate bondary point if the 
+</summary>
+</member>
+<member name="M:Common.Misc.tupleOption``2(Microsoft.FSharp.Core.FSharpOption{``0},Microsoft.FSharp.Core.FSharpOption{``1})">
+<summary>
+ Takes pair of option values and create option of pair.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Misc">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Monads">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Random">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Common.Text">
+
+</member>
+</members>
+</doc>

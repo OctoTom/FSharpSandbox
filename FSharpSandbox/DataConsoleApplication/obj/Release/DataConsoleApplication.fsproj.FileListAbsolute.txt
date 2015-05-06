@@ -1,0 +1,15 @@
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\DataConsoleApplication.exe.config
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\DataConsoleApplication.XML
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\DataConsoleApplication.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\DataConsoleApplication.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Core.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.DesignTime.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.DesignTime.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Data.DesignTime.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\bin\Release\FSharp.Core.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\obj\Release\DataConsoleApplication.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\obj\Release\DataConsoleApplication.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\DataConsoleApplication\obj\Release\DataConsoleApplication.fsprojResolveAssemblyReference.cache

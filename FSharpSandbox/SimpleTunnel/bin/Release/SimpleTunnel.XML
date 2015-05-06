@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>SimpleTunnel</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="T:Program">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:StiffnessMatrix.stiffnessMatrix(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Localizes the components to 3x3 stiffness matrix.
+</summary>
+</member>
+<member name="M:StiffnessMatrix.stiffnessComponents(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Stiffness matrix of simple excavation model created by prof. Sejnoha and Vlada.
+</summary>
+</member>
+<member name="T:StiffnessMatrix">
+
+</member>
+</members>
+</doc>

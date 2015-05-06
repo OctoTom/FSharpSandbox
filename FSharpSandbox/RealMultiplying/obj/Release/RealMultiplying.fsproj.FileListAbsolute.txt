@@ -1,0 +1,8 @@
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.exe.config
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.XML
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.pdb
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\FSharp.Core.dll
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\FSharp.Core.xml
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.exe
+C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.pdb

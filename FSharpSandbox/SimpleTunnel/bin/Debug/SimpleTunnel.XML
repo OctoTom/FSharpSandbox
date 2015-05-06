@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>SimpleTunnel</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:LogModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:OptimModule.samplesUD(System.Int32)">
+<summary>
+ Infinite sequence of uniformly distributed random n-dim points in interval (0.0, 1.0).
+</summary>
+</member>
+<member name="P:OptimModule.random">
+<summary>
+ .NET Random number generator
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:OptimModule">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:SimpleTunnel.Model2d3d.loadVector_v4(System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Creates a load vector 6x1 representing the excvation forces.
+ DoF: v1, v2, v3, u1, delta v1, delta v2
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:SimpleTunnel.Model2d3d.loadVector_v2(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Creates a load vector 5x1 representing the excvation forces.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:SimpleTunnel.Model2d3d.stiffnessMatrix_v3(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Stiffness matrix (5 x 5) of simple tunnel model updated with buble functions.
+ Updated bouderies of integrals of second layer (integration from r)
+</summary>
+</member>
+<member name="M:SimpleTunnel.Model2d3d.stiffnessMatrix_v2(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Stiffness matrix (5 x 5) of simple tunnel model updated with buble functions.
+</summary>
+</member>
+<member name="M:SimpleTunnel.Model2d3d.loadVector(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Creates a load vector 3x1 representing the excvation forces.
+</summary>
+</member>
+<member name="M:SimpleTunnel.Model2d3d.stiffnessMatrix(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Stiffness matrix of simple excavation model created by prof. Sejnoha and Vlada Srnec.
+ This model uses some kind of trigonometric function to approximate the settlements on terrain which proved wrong.
+</summary>
+</member>
+<member name="M:SimpleTunnel.Model2d3d.incremDisp(System.Double,System.Double,System.Double)">
+<summary>
+ Computes the increment of displacement that would generate the given total displacement.
+</summary>
+</member>
+<member name="M:SimpleTunnel.Model2d3d.totalDisp(System.Double,System.Double,System.Double)">
+<summary>
+ Computes the total displacement (setlement) in 2d3d as a sum of all incremental settlements deltaDisp.
+ Wtot = deltaW * (1 + 2 * exp(alpha * deltaZ / 2)/(exp(alpha * deltaZ / 2) - 1)  
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:SimpleTunnel.Model2d3d.Tests">
+
+</member>
+<member name="T:SimpleTunnel.Model2d3d">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:SimpleTunnel.Program">
+
+</member>
+</members>
+</doc>

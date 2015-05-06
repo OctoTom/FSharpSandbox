@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApplicationSandbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="240" Width="320">
+  <Window.Resources>
+    <ResourceDictionary>
+      <Style x:Key="MyStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="Red"></Setter>
+        <Setter Property="Text" Value="Hover over this Textblock to see what triggers can do."></Setter>
+        <Style.Triggers>
+          <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="Orange"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Text" Value="Hey, mouse is over!"></Setter>
+          </Trigger>
+        </Style.Triggers>
+      </Style>
+      <Style x:Key="MyStyle2" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="Yellow"></Setter>
+        <Setter Property="Text" Value="Some other initial text."></Setter>
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding IsMouseOver, ElementName=Label1}" Value="True">
+            <Setter Property="Text" Value="NO NO NO" />
+          </DataTrigger>
+        </Style.Triggers>
+      </Style>
+    </ResourceDictionary>
+  </Window.Resources>
+  <StackPanel>
+    <TextBlock x:Name="Label1" Style="{StaticResource ResourceKey=MyStyle}"></TextBlock>
+    <TextBlock Style="{StaticResource ResourceKey=MyStyle2}"></TextBlock>
+  </StackPanel>
+</Window>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weatherdata>
+  <location>
+    <name>Gvarv</name>
+    <type>Small town</type>
+    <country>Norway</country>
+    <timezone id="Europe/Oslo" utcoffsetMinutes="60" />
+    <location altitude="17" latitude="59.3876666216368" longitude="9.17239325131741" geobase="ssr" geobaseid="43354" />
+  </location>
+  <credit>
+    <!--In order to use the free weather data from yr no, you HAVE to display 
+the following text clearly visible on your web page. The text should be a 
+link to the specified URL.-->
+    <!--Please read more about our conditions and guidelines at http://om.yr.no/verdata/  English explanation at http://om.yr.no/verdata/free-weather-data/-->
+    <link text="Weather forecast from yr.no, delivered by the Norwegian Meteorological Institute and the NRK" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/" />
+  </credit>
+  <links>
+    <link id="xmlSource" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/forecast.xml" />
+    <link id="xmlSourceHourByHour" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/forecast_hour_by_hour.xml" />
+    <link id="overview" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/" />
+    <link id="hourByHour" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/hour_by_hour" />
+    <link id="longTermForecast" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/long" />
+    <link id="radar" url="http://www.yr.no/place/Norway/Telemark/Sauherad/Gvarv/radar.html" />
+  </links>
+  <meta>
+    <lastupdate>2013-11-30T16:48:58</lastupdate>
+    <nextupdate>2013-11-30T23:00:00</nextupdate>
+  </meta>
+  <sun rise="2013-11-30T08:51:29" set="2013-11-30T15:32:06" />
+  <forecast>
+    <text>
+      <location name="Gvarv">
+        <time from="2013-11-30" to="2013-12-01" type="obsforecast">
+          <title>Saturday and Sunday</title>
+          <body>&lt;strong&gt;Telemark:&lt;/strong&gt; Fra lørdag kveld vanskelige kjøreforhold over fjellovergangene pga økning til vestlig liten storm og snø. Søndag kveld avtagende vind og nedbør.</body>
+        </time>
+        <time from="2013-11-30" to="2013-12-01">
+          <title>Saturday and Sunday</title>
+          <body>&lt;strong&gt;Telemark:&lt;/strong&gt; Vestlig bris, på kysten sørvestlig liten kuling. Stort sett oppholdsvær. Lokal tåke i lavlandet. Fra tidlig søndag morgen nordvestlig liten kuling utsatte steder, periodevis stiv kuling med lokalt kraftige vindkast. Om kvelden minkende vind. Ellers pent vær.</body>
+        </time>
+        <time from="2013-12-02" to="2013-12-02">
+          <title>Monday</title>
+          <body>&lt;strong&gt;Telemark:&lt;/strong&gt; Bris omkring vest. Skyet eller delvis skyet, stort sett oppholdsvær.</body>
+        </time>
+        <time from="2013-12-03" to="2013-12-03">
+          <title>Tuesday</title>
+          <body>&lt;strong&gt;Østlandet og Telemark:&lt;/strong&gt; For det meste bris omkring vest, til dels kuling på kysten. Opphold og for en stor del pent vær. Litt høyere temperatur, men synkende igjen siste del av dagen.</body>
+        </time>
+        <time from="2013-12-04" to="2013-12-05">
+          <title>Wednesday and Thursday</title>
+          <body>&lt;strong&gt;Sør-Norge:&lt;/strong&gt; Onsdag bris omkring vest, til dels kuling på kysten og i fjellet. I Trøndelag, på Vestlandet og i vestlige fjelltrakter ventes regn og regnbyger på kysten, snø i indre og høyere strøk. Østafjells opphold og for en stor del pent vær. Torsdag ventes et lavtrykk fra vest å gi sørvestlig kuling over store områder. Vestlandet, Trøndelag, samt vestlige og nordlige fjelltrakter får mye nedbør. Østafjells ventes lite nedbør, og da trolig sent på dagen. Uendret eller litt synkende temperatur.</body>
+        </time>
+        <time from="2013-12-06" to="2013-12-09">
+          <title>Friday to Monday</title>
+          <body>&lt;strong&gt;Norge og Spitsbergen:&lt;/strong&gt; Lavtrykksaktivitet preger været på fastlandet disse dagene med kuling og nedbør i perioder, først og fremst på Vestlandet, i Trøndelag og i Nordland. Østafjells ventes lange perioder med opphold. Det ventes synkende temperatur i Sør-Norge, omtrent uendret i Nord-Norge.Spitsbergen får nordlig kuling og spredt snø til å begynne med, senere roligere vindforhold og forbigående opphold. Fortsatt forholdsvis kaldt.</body>
+        </time>
+      </location>
+    </text>
+    <tabular>
+      <time from="2013-11-30T23:00:00" to="2013-12-01T00:00:00" period="3">
+        <!-- Valid from 2013-11-30T23:00:00 to 2013-12-01T00:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.91" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-11-30T23:00:00 -->
+        <windDirection deg="160.2" code="SSE" name="South-southeast" />
+        <windSpeed mps="0.6" name="Light air" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1007.6" />
+      </time>
+      <time from="2013-12-01T00:00:00" to="2013-12-01T06:00:00" period="0">
+        <!-- Valid from 2013-12-01T00:00:00 to 2013-12-01T06:00:00 -->
+        <symbol number="2" name="Fair" var="mf/02n.94" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-01T00:00:00 -->
+        <windDirection deg="22.3" code="NNE" name="North-northeast" />
+        <windSpeed mps="0.4" name="Light air" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1005.9" />
+      </time>
+      <time from="2013-12-01T06:00:00" to="2013-12-01T12:00:00" period="1">
+        <!-- Valid from 2013-12-01T06:00:00 to 2013-12-01T12:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-01T06:00:00 -->
+        <windDirection deg="293.7" code="WNW" name="West-northwest" />
+        <windSpeed mps="3.8" name="Gentle breeze" />
+        <temperature unit="celsius" value="4" />
+        <pressure unit="hPa" value="1007.4" />
+      </time>
+      <time from="2013-12-01T12:00:00" to="2013-12-01T18:00:00" period="2">
+        <!-- Valid from 2013-12-01T12:00:00 to 2013-12-01T18:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-01T12:00:00 -->
+        <windDirection deg="311.1" code="NW" name="Northwest" />
+        <windSpeed mps="9.8" name="Fresh breeze" />
+        <temperature unit="celsius" value="7" />
+        <pressure unit="hPa" value="1011.8" />
+      </time>
+      <time from="2013-12-01T18:00:00" to="2013-12-02T00:00:00" period="3">
+        <!-- Valid from 2013-12-01T18:00:00 to 2013-12-02T00:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.94" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-01T18:00:00 -->
+        <windDirection deg="308.7" code="NW" name="Northwest" />
+        <windSpeed mps="3.5" name="Gentle breeze" />
+        <temperature unit="celsius" value="3" />
+        <pressure unit="hPa" value="1021.6" />
+      </time>
+      <time from="2013-12-02T00:00:00" to="2013-12-02T06:00:00" period="0">
+        <!-- Valid from 2013-12-02T00:00:00 to 2013-12-02T06:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.98" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-02T00:00:00 -->
+        <windDirection deg="115.8" code="ESE" name="East-southeast" />
+        <windSpeed mps="0.6" name="Light air" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="1027.6" />
+      </time>
+      <time from="2013-12-02T06:00:00" to="2013-12-02T12:00:00" period="1">
+        <!-- Valid from 2013-12-02T06:00:00 to 2013-12-02T12:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-02T06:00:00 -->
+        <windDirection deg="297.9" code="WNW" name="West-northwest" />
+        <windSpeed mps="0.9" name="Light air" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1029.3" />
+      </time>
+      <time from="2013-12-02T12:00:00" to="2013-12-02T18:00:00" period="2">
+        <!-- Valid from 2013-12-02T12:00:00 to 2013-12-02T18:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-02T12:00:00 -->
+        <windDirection deg="94.4" code="E" name="East" />
+        <windSpeed mps="0.9" name="Light air" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1028.0" />
+      </time>
+      <time from="2013-12-02T18:00:00" to="2013-12-03T00:00:00" period="3">
+        <!-- Valid from 2013-12-02T18:00:00 to 2013-12-03T00:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-02T18:00:00 -->
+        <windDirection deg="86.0" code="E" name="East" />
+        <windSpeed mps="0.4" name="Light air" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1024.9" />
+      </time>
+      <time from="2013-12-03T00:00:00" to="2013-12-03T06:00:00" period="0">
+        <!-- Valid from 2013-12-03T00:00:00 to 2013-12-03T06:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-03T00:00:00 -->
+        <windDirection deg="106.4" code="ESE" name="East-southeast" />
+        <windSpeed mps="1.3" name="Light air" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1021.3" />
+      </time>
+      <time from="2013-12-03T07:00:00" to="2013-12-03T13:00:00" period="1">
+        <!-- Valid from 2013-12-03T07:00:00 to 2013-12-03T13:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-03T07:00:00 -->
+        <windDirection deg="101.5" code="ESE" name="East-southeast" />
+        <windSpeed mps="0.7" name="Light air" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1015.9" />
+      </time>
+      <time from="2013-12-03T13:00:00" to="2013-12-03T19:00:00" period="2">
+        <!-- Valid from 2013-12-03T13:00:00 to 2013-12-03T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-03T13:00:00 -->
+        <windDirection deg="244.3" code="WSW" name="West-southwest" />
+        <windSpeed mps="2.4" name="Light breeze" />
+        <temperature unit="celsius" value="5" />
+        <pressure unit="hPa" value="1011.7" />
+      </time>
+      <time from="2013-12-03T19:00:00" to="2013-12-04T01:00:00" period="3">
+        <!-- Valid from 2013-12-03T19:00:00 to 2013-12-04T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.01" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-03T19:00:00 -->
+        <windDirection deg="284.1" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="1013.7" />
+      </time>
+      <time from="2013-12-04T01:00:00" to="2013-12-04T07:00:00" period="0">
+        <!-- Valid from 2013-12-04T01:00:00 to 2013-12-04T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-04T01:00:00 -->
+        <windDirection deg="222.4" code="SW" name="Southwest" />
+        <windSpeed mps="2.7" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1015.6" />
+      </time>
+      <time from="2013-12-04T07:00:00" to="2013-12-04T13:00:00" period="1">
+        <!-- Valid from 2013-12-04T07:00:00 to 2013-12-04T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-04T07:00:00 -->
+        <windDirection deg="217.6" code="SW" name="Southwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1013.5" />
+      </time>
+      <time from="2013-12-04T13:00:00" to="2013-12-04T19:00:00" period="2">
+        <!-- Valid from 2013-12-04T13:00:00 to 2013-12-04T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-04T13:00:00 -->
+        <windDirection deg="247.0" code="WSW" name="West-southwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="1011.5" />
+      </time>
+      <time from="2013-12-04T19:00:00" to="2013-12-05T01:00:00" period="3">
+        <!-- Valid from 2013-12-04T19:00:00 to 2013-12-05T01:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-04T19:00:00 -->
+        <windDirection deg="267.8" code="W" name="West" />
+        <windSpeed mps="3.1" name="Light breeze" />
+        <temperature unit="celsius" value="-1" />
+        <pressure unit="hPa" value="1010.2" />
+      </time>
+      <time from="2013-12-05T01:00:00" to="2013-12-05T07:00:00" period="0">
+        <!-- Valid from 2013-12-05T01:00:00 to 2013-12-05T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.08" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-05T01:00:00 -->
+        <windDirection deg="255.7" code="WSW" name="West-southwest" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="1009.7" />
+      </time>
+      <time from="2013-12-05T07:00:00" to="2013-12-05T13:00:00" period="1">
+        <!-- Valid from 2013-12-05T07:00:00 to 2013-12-05T13:00:00 -->
+        <symbol number="9" name="Rain" var="09" />
+        <precipitation value="2.1" />
+        <!-- Valid at 2013-12-05T07:00:00 -->
+        <windDirection deg="242.7" code="WSW" name="West-southwest" />
+        <windSpeed mps="4.2" name="Gentle breeze" />
+        <temperature unit="celsius" value="2" />
+        <pressure unit="hPa" value="1000.1" />
+      </time>
+      <time from="2013-12-05T13:00:00" to="2013-12-05T19:00:00" period="2">
+        <!-- Valid from 2013-12-05T13:00:00 to 2013-12-05T19:00:00 -->
+        <symbol number="12" name="Sleet" var="12" />
+        <precipitation value="1.7" />
+        <!-- Valid at 2013-12-05T13:00:00 -->
+        <windDirection deg="230.0" code="SW" name="Southwest" />
+        <windSpeed mps="5.2" name="Gentle breeze" />
+        <temperature unit="celsius" value="4" />
+        <pressure unit="hPa" value="993.7" />
+      </time>
+      <time from="2013-12-05T19:00:00" to="2013-12-06T01:00:00" period="3">
+        <!-- Valid from 2013-12-05T19:00:00 to 2013-12-06T01:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-05T19:00:00 -->
+        <windDirection deg="212.3" code="SSW" name="South-southwest" />
+        <windSpeed mps="3.3" name="Light breeze" />
+        <temperature unit="celsius" value="1" />
+        <pressure unit="hPa" value="988.1" />
+      </time>
+      <time from="2013-12-06T01:00:00" to="2013-12-06T07:00:00" period="0">
+        <!-- Valid from 2013-12-06T01:00:00 to 2013-12-06T07:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.11" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-06T01:00:00 -->
+        <windDirection deg="208.9" code="SSW" name="South-southwest" />
+        <windSpeed mps="3.1" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="984.2" />
+      </time>
+      <time from="2013-12-06T07:00:00" to="2013-12-06T13:00:00" period="1">
+        <!-- Valid from 2013-12-06T07:00:00 to 2013-12-06T13:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-06T07:00:00 -->
+        <windDirection deg="298.7" code="WNW" name="West-northwest" />
+        <windSpeed mps="3.1" name="Light breeze" />
+        <temperature unit="celsius" value="-3" />
+        <pressure unit="hPa" value="985.2" />
+      </time>
+      <time from="2013-12-06T13:00:00" to="2013-12-06T19:00:00" period="2">
+        <!-- Valid from 2013-12-06T13:00:00 to 2013-12-06T19:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-06T13:00:00 -->
+        <windDirection deg="260.5" code="W" name="West" />
+        <windSpeed mps="3.7" name="Gentle breeze" />
+        <temperature unit="celsius" value="0" />
+        <pressure unit="hPa" value="988.1" />
+      </time>
+      <time from="2013-12-06T19:00:00" to="2013-12-07T01:00:00" period="3">
+        <!-- Valid from 2013-12-06T19:00:00 to 2013-12-07T01:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.11" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-06T19:00:00 -->
+        <windDirection deg="201.9" code="SSW" name="South-southwest" />
+        <windSpeed mps="3.2" name="Light breeze" />
+        <temperature unit="celsius" value="-3" />
+        <pressure unit="hPa" value="992.4" />
+      </time>
+      <time from="2013-12-07T01:00:00" to="2013-12-07T07:00:00" period="0">
+        <!-- Valid from 2013-12-07T01:00:00 to 2013-12-07T07:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.15" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-07T01:00:00 -->
+        <windDirection deg="305.4" code="NW" name="Northwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="-4" />
+        <pressure unit="hPa" value="994.7" />
+      </time>
+      <time from="2013-12-07T07:00:00" to="2013-12-07T13:00:00" period="1">
+        <!-- Valid from 2013-12-07T07:00:00 to 2013-12-07T13:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="03d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-07T07:00:00 -->
+        <windDirection deg="321.2" code="NW" name="Northwest" />
+        <windSpeed mps="2.9" name="Light breeze" />
+        <temperature unit="celsius" value="-5" />
+        <pressure unit="hPa" value="996.5" />
+      </time>
+      <time from="2013-12-07T13:00:00" to="2013-12-07T19:00:00" period="2">
+        <!-- Valid from 2013-12-07T13:00:00 to 2013-12-07T19:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-07T13:00:00 -->
+        <windDirection deg="304.2" code="NW" name="Northwest" />
+        <windSpeed mps="2.8" name="Light breeze" />
+        <temperature unit="celsius" value="-2" />
+        <pressure unit="hPa" value="999.7" />
+      </time>
+      <time from="2013-12-07T19:00:00" to="2013-12-08T01:00:00" period="3">
+        <!-- Valid from 2013-12-07T19:00:00 to 2013-12-08T01:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-07T19:00:00 -->
+        <windDirection deg="309.0" code="NW" name="Northwest" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="-4" />
+        <pressure unit="hPa" value="1002.5" />
+      </time>
+      <time from="2013-12-08T01:00:00" to="2013-12-08T07:00:00" period="0">
+        <!-- Valid from 2013-12-08T01:00:00 to 2013-12-08T07:00:00 -->
+        <symbol number="3" name="Partly cloudy" var="mf/03n.18" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-08T01:00:00 -->
+        <windDirection deg="320.1" code="NW" name="Northwest" />
+        <windSpeed mps="2.7" name="Light breeze" />
+        <temperature unit="celsius" value="-5" />
+        <pressure unit="hPa" value="1006.1" />
+      </time>
+      <time from="2013-12-08T07:00:00" to="2013-12-08T13:00:00" period="1">
+        <!-- Valid from 2013-12-08T07:00:00 to 2013-12-08T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-08T07:00:00 -->
+        <windDirection deg="313.4" code="NW" name="Northwest" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="-5" />
+        <pressure unit="hPa" value="1006.2" />
+      </time>
+      <time from="2013-12-08T13:00:00" to="2013-12-08T19:00:00" period="2">
+        <!-- Valid from 2013-12-08T13:00:00 to 2013-12-08T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-08T13:00:00 -->
+        <windDirection deg="290.8" code="WNW" name="West-northwest" />
+        <windSpeed mps="2.6" name="Light breeze" />
+        <temperature unit="celsius" value="-3" />
+        <pressure unit="hPa" value="1010.5" />
+      </time>
+      <time from="2013-12-08T19:00:00" to="2013-12-09T01:00:00" period="3">
+        <!-- Valid from 2013-12-08T19:00:00 to 2013-12-09T01:00:00 -->
+        <symbol number="4" name="Cloudy" var="04" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-08T19:00:00 -->
+        <windDirection deg="307.2" code="NW" name="Northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="-5" />
+        <pressure unit="hPa" value="1013.9" />
+      </time>
+      <time from="2013-12-09T01:00:00" to="2013-12-09T07:00:00" period="0">
+        <!-- Valid from 2013-12-09T01:00:00 to 2013-12-09T07:00:00 -->
+        <symbol number="1" name="Fair" var="mf/01n.21" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-09T01:00:00 -->
+        <windDirection deg="308.7" code="NW" name="Northwest" />
+        <windSpeed mps="2.5" name="Light breeze" />
+        <temperature unit="celsius" value="-6" />
+        <pressure unit="hPa" value="1015.4" />
+      </time>
+      <time from="2013-12-09T07:00:00" to="2013-12-09T13:00:00" period="1">
+        <!-- Valid from 2013-12-09T07:00:00 to 2013-12-09T13:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-09T07:00:00 -->
+        <windDirection deg="332.0" code="NNW" name="North-northwest" />
+        <windSpeed mps="2.4" name="Light breeze" />
+        <temperature unit="celsius" value="-6" />
+        <pressure unit="hPa" value="1015.8" />
+      </time>
+      <time from="2013-12-09T13:00:00" to="2013-12-09T19:00:00" period="2">
+        <!-- Valid from 2013-12-09T13:00:00 to 2013-12-09T19:00:00 -->
+        <symbol number="1" name="Fair" var="01d" />
+        <precipitation value="0" />
+        <!-- Valid at 2013-12-09T13:00:00 -->
+        <windDirection deg="275.0" code="W" name="West" />
+        <windSpeed mps="2.1" name="Light breeze" />
+        <temperature unit="celsius" value="-3" />
+        <pressure unit="hPa" value="1019.3" />
+      </time>
+    </tabular>
+  </forecast>
+  <observations>
+    <weatherstation stno="32060" sttype="eklima" name="Gvarv" distance="2368" lat="59.38220" lon="9.21280" source="Meteorologisk Institutt">
+      <temperature unit="celsius" value="1.7" time="2013-11-30T21:00:00Z" />
+      <windDirection deg="188.0" code="S" name="South" time="2013-11-30T21:00:00Z" />
+      <windSpeed mps="2.2" name="Light breeze" time="2013-11-30T21:00:00Z" />
+    </weatherstation>
+    <weatherstation stno="32240" sttype="eklima" name="Bø (Glennahaugen)" distance="8786" lat="59.41750" lon="9.02870" source="Meteorologisk Institutt">
+      <temperature unit="celsius" value="-1.0" time="2013-11-30T20:00:00Z" />
+    </weatherstation>
+    <weatherstation stno="30650" sttype="eklima" name="Notodden Airport" distance="20029" lat="59.56670" lon="9.21050" source="Meteorologisk Institutt">
+      <temperature unit="celsius" value="3.6" time="2013-11-30T21:00:00Z" />
+      <windDirection deg="94.0" code="E" name="East" time="2013-11-30T21:00:00Z" />
+      <windSpeed mps="4.7" name="Gentle breeze" time="2013-11-30T21:00:00Z" />
+    </weatherstation>
+  </observations>
+</weatherdata>
