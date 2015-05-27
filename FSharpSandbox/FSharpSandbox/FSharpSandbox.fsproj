@@ -80,6 +80,7 @@
     <None Include="packages.config" />
     <None Include="NinetyNineFSharpProblems.fsx" />
     <None Include="Program.fsx" />
+    <None Include="ComputationExpressions.fsx" />
     <None Include="BayesianInference.fsx" />
     <None Include="BayesianInference2.fsx" />
     <None Include="FSharpForScientists.fsx" />
