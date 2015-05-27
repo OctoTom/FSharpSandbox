@@ -78,23 +78,18 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <Compile Include="Tools.fs" />
-    <Compile Include="Micromech.fs" />
-    <None Include="PointAndLineCharts.fsx" />
     <None Include="NinetyNineFSharpProblems.fsx" />
     <None Include="Program.fsx" />
     <None Include="BayesianInference.fsx" />
     <None Include="BayesianInference2.fsx" />
-    <None Include="Tools.fsx" />
-    <None Include="AsyncDownload.fsx" />
     <None Include="FSharpForScientists.fsx" />
-    <None Include="ProgressPlot.fsx" />
     <None Include="SymbolicExpressions.fsx" />
     <None Include="SymbolicExpressions2.fsx" />
     <None Include="Memoize.fsx" />
     <None Include="BeamShapeFunctions.fsx" />
     <None Include="DoingBayesianInference.fsx" />
     <None Include="TestRProvider.fsx" />
+    <None Include="TryDeedle.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Charting">

@@ -1,5 +1,5 @@
 ﻿//#load @"c:\Users\Tomas\Scripts\NuGet\LoadPackages.fsx"
-//module RandomProcess
+module RandomProcess
 open MathNet.Numerics.LinearAlgebra
 
 // -- Auxiliary stuff ---------------------------------------------------------
@@ -22,8 +22,6 @@ let listsToMatrix (lists:float list list) =
 // ====================================================================
 // == Gaussian Markov Random Field (GMRF) generation                 
 // Written according to "Spatial Process Generation.pdf", Algorithm 2.1
-
-
 let getRandomField (d1, d2) (n1, n2) covFunc =
   // First get some points. For simplicity suppose points in grid.
   let deltaX1 = d1 // [m]
@@ -154,6 +152,4 @@ let m = n + nHead
 let is_long = [1 .. n] |> addHeads nHead
 let ys_long = ys |> addHeads nHead |> addNormalError 1.0
 
-getRandomField (10.0, 10.0) (10, 10) variance h |> saveGridValuesAsBitmap @"C:\Users\Tomas\Desktop\TestImage2.bmp"
 
-let numNodes = 21*20 + 40 + 5
