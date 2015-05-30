@@ -1,4 +1,7 @@
-﻿// Computation expressions (monads)
+﻿// ===========================================
+// Computation expressions (monads) playground
+// ===========================================
+
 module ComputationExpressions = // Option-returning function
   let tryDecr x n = 
     printfn "Conditionally decrementing %A by %A" x n
@@ -8,7 +11,7 @@ module ComputationExpressions = // Option-returning function
     else
       printfn "Condition not met."
       None
-  // Builder
+  // Computation expression builder. (Monadic type is the Option type)
   type MaybeBuilder() =
     member this.Return x = Some x // Defines what "return" does.
     member this.Bind (p, rest) = // Defines what "let!" does.
@@ -22,48 +25,44 @@ module ComputationExpressions = // Option-returning function
   // Crate an instance of maybe computation expression
   let maybe = new MaybeBuilder()
   // Define an function using the instance of maybe computation expression
-  let maybeDecr x =
+  let maybeDecr_v1 x =
     maybe {
       let! y = tryDecr x 10
       let! z = tryDecr y 30
       let! t = tryDecr z 50
       return t
     }
+  // The same as above without syntactic suger. No magic here, just plane F#.
   let maybeDecr_v2 x =
     maybe.Bind (tryDecr x 10, fun y ->
       maybe.Bind (tryDecr y 30, fun z ->
         maybe.Bind (tryDecr z 50, fun t ->
           maybe.Return t)))  
-
   // Call the function with various values
-  let res1 = maybeDecr 100
-  let res1_v2 = maybeDecr_v2 100
-  let res2 = maybeDecr 30
-  let res2_v2 = maybeDecr_v2 30
-  let res3 = maybeDecr 10
-  let res3_v2 = maybeDecr_v2 10
+  let res1 = maybeDecr_v1 100
+  let res2 = maybeDecr_v2 100
+  let res3 = maybeDecr_v1 30
+  let res4 = maybeDecr_v2 30
+  let res5 = maybeDecr_v1 10
+  let res6 = maybeDecr_v2 10
 
   // Monad primer from F Sharp Programing / Computation Expression (WikiBooks)
   // 1. Everyday sequential code
   module Sequential =
     // Definitions
-    let readLine() =
-      System.Console.ReadLine()
-    let printLine(s) =
-      printfn "%s" s
-    // Sequential code
+    let readLine() = System.Console.ReadLine()
+    let printLine(s) = printfn "%s" s
+    // Sequential code. It is allowed in F# but not in pure languages.
     let expr1 =
-      printLine "What is yout name?"
-      let name = readLine()
-      printLine ("Hello, " + name + "!")
+      do printLine "What is yout name?"
+      let name = readLine ()
+      do printLine ("Hello, " + name + "!")
 
-  // 2. Sequential code writen in functional style. ("If you can understand this much, than you can understand any monad.")
-  // Definitions
+  // 2. Sequential code written in functional style. ("If you can understand this much, than you can understand any monad.")
+  // This is how we can enforce sequential evaluation in pure functional language.
   module SequentialWithFunctional =
-    let readLine(f) =
-      f(System.Console.ReadLine())
-    let printLine(s, f) =
-      f(printfn "%s" s)
+    let readLine(f) = f(System.Console.ReadLine()) // These functions are enhanced by continuation function f. "Do something and call f with the result."
+    let printLine(s, f) = f(printfn "%s" s)
     // Chained functions
     let expr = 
       printLine("What is your name?", fun () ->
@@ -73,11 +72,16 @@ module ComputationExpressions = // Option-returning function
           )
         )
       )
+    // Is this possible with curried functions instead of function accepting tuple?
 
-  // 3. Define my own Bind function
+  // 3. Define my own Bind function. No special builder type yet.
   module DefineOwnBindMethod =
+    // Bind takes an expression and a function (continuation, rest of computations).
+    // It evaluates the expression and passed it to the function.
     let bind (x, f) = f x
-    let readLine () = System.Console.ReadLine()
+    // These functions are the same as in the first example. 
+    // No continuation added as in the second example. Bind takes care of continuation calling.
+    let readLine () = System.Console.ReadLine() 
     let printLine s = printfn "%s" s
     let expr = 
       bind(printLine "What is your name?", fun () ->
@@ -89,6 +93,7 @@ module ComputationExpressions = // Option-returning function
       )
 
   // 4. Using F# computation expression in De-suggered manner
+  // This does not use monadic wrapper type M<'a> yet.
   module FSharpComputationExpression =
     let readLine () = System.Console.ReadLine()
     let printLine s = printfn "%s" s
@@ -109,7 +114,6 @@ module ComputationExpressions = // Option-returning function
           )
         )
       )
-  
     // Suggered version
     let expr5 =
       standard {
@@ -117,32 +121,39 @@ module ComputationExpressions = // Option-returning function
         let! s = readLine()
         return printLine("Hello " + s + "!")
       }
-
-    // Sugared monad-style expression
-    let exp3 =
-      standard { // Sugared
+    // Another suggered expression
+    let exp5 =
+      standard { // Sugered
         let! a = 2
         let! b = a + 3
         let! c = b + 5
         return a + b + c
       }
 
-  // 3. Define my own Bind function
+
+  // Another example: Define my own Bind function
+  // No monadic type yet.
+  // Bind accepts string. If parsing is successfull the result is sent to continuation. If not, None is returned and no continuation is invoked.
   let addThreeNumbers() =
-    let bind(input, rest) =
-      match System.Int32.TryParse(input()) with // F# translates .NET functions with "out" parameters to functions returning a tuple. (http://hestia.typepad.com/flatlander/2010/07/f-pattern-matching-for-beginners-part-2-decomposition.html)
-      | (true, n) when n >= 0 && n <= 100 -> Some(n)
+    let bind(input, f) =
+      // NOTE: F# translates .NET functions with "out" parameters to functions returning a tuple.
+      // (http://hestia.typepad.com/flatlander/2010/07/f-pattern-matching-for-beginners-part-2-decomposition.html)
+      match System.Int32.TryParse(input) with 
+      | (true, n) when n >= 0 && n <= 100 -> f n
       | _ -> None
     let createMsg msg =
-      fun () ->
-        printf "%s" msg
-        System.Console.ReadLine()
+      let f = 
+        printfn "%s" msg
+        System.Console.ReadLine ()
+      f
     bind(createMsg "#1: ", fun x ->
       bind(createMsg "#2: ", fun y ->
         bind(createMsg "#3: ", fun z -> Some(x + y + z))))
   let result = addThreeNumbers()
 
-  // My experiments with monadic style
+
+  // My experiments with monadic style.
+  // No monadic type M<'a> yet.
   module MyMonadicExperiments =
     // 1. Sequential
     let exp1 =
@@ -161,21 +172,21 @@ module ComputationExpressions = // Option-returning function
       member this.Return(x) =
         printfn("Function Return called.")
         x
-    let standard = VerboseStandardBuilder()
+    let verbose = VerboseStandardBuilder()
     // 2a. De-sugared monad-style expression
     let exp2 =
-      standard.Delay(fun () ->
-        standard.Bind(2, fun a ->
-          standard.Bind(a + 3, fun b ->
-            standard.Bind(b + 5, fun c ->
-              standard.Return(a + b + c)
+      verbose.Delay(fun () -> // This line is not needed. (together with the last parenthesis.
+        verbose.Bind(2, fun a ->
+          verbose.Bind(a + 3, fun b ->
+            verbose.Bind(b + 5, fun c ->
+              verbose.Return(a + b + c)
             )
           )
         )
       ) 
     // 2.b Sugared monad-style expression
     let exp3 =
-      standard { // Sugared
+      verbose { // Sugared
         let! a = 2
         let! b = a + 3
         let! c = b + 5
@@ -193,12 +204,15 @@ module ComputationExpressions = // Option-returning function
           )
         )
       )
+// Exercise: Do the same as above with some monadic container type.
+
+
           
 // LOGGING COMPUTATION EXPRESSION //
 module LoggingComputationExpression =
   // Monadic type
-  type M<'T> = Log of 'T * list<string>
-  // Computation expression buider. (Definition of the two essential modad function bind and return)
+  type M<'T> = Log of 'T * string list // Means: 'T * (string list)
+  // Computation expression buider. (Definition of the two essential monad function Bind and Return)
   type LoggingBuilder () =
     member x.Bind(monadicInputValue, transformation) =
       let (Log(inputValue, logs)) = monadicInputValue // Extracting the input value from monadic container.
@@ -209,8 +223,54 @@ module LoggingComputationExpression =
       Log(value, [])
     member x.Zero() =
       Log((), [])
+
   // Creating an instance of logging computation expression builder
   let log = new LoggingBuilder()
+  let (>>=) a b = log.Bind (a, b)
+  
+  // Standard functions
+  let incr x = x + 1
+  let double x = 2 * x
+  let square x = x * x
+  let incr2 x = x |> incr |> incr
+
+  // Standard expression
+  let expr1 =
+    let a = 1
+    let b = incr a
+    let c = double b
+    let d = square c
+    d
+  
+  // Enhanced functions
+  let lift name f  = fun x ->
+    let y = f x
+    let msg = sprintf "%s called with %A returned %A." name x y
+    Log(f x, [msg])
+  
+  // Lifted functions
+  let incrM = lift "Increment" incr
+  let incr2M = lift "Increment twice" incr2
+  let mapM a = lift "MapM" (List.map a)
+    
+  let expr2 = log {
+      let a = 1
+      let! b = incrM a
+      let double = lift "Double" double // Shadowed
+      let! c = double b
+      let d = square c
+      return d
+    } 
+
+  let expr3 = log {
+      let a = [1..5]
+      let! b = mapM (double) a
+      let! c = mapM (incr) a
+      return b
+    }
+
+
+  
   // Helper function for writing log message to monadic container
   let logMessage s = Log((), [s])
 

@@ -78,9 +78,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="NinetyNineFSharpProblems.fsx" />
     <None Include="Program.fsx" />
+    <None Include="Misc.fsx" />
     <None Include="ComputationExpressions.fsx" />
+    <None Include="NinetyNineFSharpProblems.fsx" />
     <None Include="BayesianInference.fsx" />
     <None Include="BayesianInference2.fsx" />
     <None Include="FSharpForScientists.fsx" />
