@@ -51,6 +51,7 @@
   <ItemGroup>
     <None Include="MotoBike.fsx" />
     <None Include="TriglavTripCost.fsx" />
+    <None Include="GeoTools.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

@@ -354,6 +354,14 @@ module Sequences =
     |> Seq.take 5
     |> Seq.toList 
 
+  // Sequence expression (http://blogs.msdn.com/b/dsyme/archive/2007/09/22/some-details-on-f-computation-expressions-aka-monadic-or-workflow-syntax.aspx)
+  // "Here is a sequence expression that opens a file for reading and then
+  // iterates the file line by line, yielding one line on each iteration."
+  let reader =
+    seq { use reader = StreamReader(File.OpenRead("test.txt"))
+      while not reader.EndOfStream do
+        yield reader.ReadLine() }
+
 // Tuples
 module Tuples =
   let myTuple = (1, 2.0)
