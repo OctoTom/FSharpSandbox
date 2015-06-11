@@ -1,6 +1,8 @@
 ﻿/// My experimental way of approximate real numbers multiplying.
 /// The numbers are equidistant on log-scale axis of positive real numbers.
-/// Multiplying these particular numbers reduce to "walking up or down" this geometric series.
+/// Multiplying these particular numbers reduces to "walking up or down" this geometric series.
+/// Multiply by one means to stay at the current number.
+/// Multiply by 1.6 means to move two steps up, etc.
 module RealMultiplying =
   let numBase = [1.0; 1.25; 1.6; 2.0; 2.5; 3.2; 4.0; 5.0; 6.3; 8.0]
   let rec rankToReal a =
@@ -30,7 +32,7 @@ module RealMultiplying =
         repl t
       | _ -> ()
     repl sqn
-  let res1 = rndSeq |> Seq.take 1000 |> Seq.toList |> repl
+  do rndSeq |> Seq.take 1000 |> Seq.toList |> repl 
 
 [<EntryPoint>]
 let main argv = 
