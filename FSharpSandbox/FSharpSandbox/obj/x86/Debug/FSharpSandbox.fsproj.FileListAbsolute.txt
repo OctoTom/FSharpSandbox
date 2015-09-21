@@ -109,6 +109,5 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\bin\De
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\bin\Debug\MathNet.Numerics.FSharp.xml
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\bin\Debug\MathNet.Numerics.IO.pdb
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\bin\Debug\MathNet.Numerics.IO.xml
-C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\obj\x86\Debug\FSharpSandbox.fsprojResolveAssemblyReference.cache
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\obj\x86\Debug\FSharpSandbox.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\FSharpSandbox\obj\x86\Debug\FSharpSandbox.pdb

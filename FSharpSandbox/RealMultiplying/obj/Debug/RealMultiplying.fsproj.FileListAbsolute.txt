@@ -31,6 +31,5 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\RealMultiplying.pdb
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\FSharp.Core.dll
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\FSharp.Core.xml
-C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.fsprojResolveAssemblyReference.cache
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.pdb

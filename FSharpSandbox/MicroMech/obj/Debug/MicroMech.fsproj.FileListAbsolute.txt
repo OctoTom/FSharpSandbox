@@ -55,6 +55,5 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\bin\Debug\
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\bin\Debug\MathNet.Numerics.xml
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\bin\Debug\MathNet.Numerics.FSharp.pdb
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\bin\Debug\MathNet.Numerics.FSharp.xml
-C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\obj\Debug\MicroMech.fsprojResolveAssemblyReference.cache
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\obj\Debug\MicroMech.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\MicroMech\obj\Debug\MicroMech.pdb

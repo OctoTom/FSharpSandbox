@@ -92,6 +92,7 @@
     <None Include="DoingBayesianInference.fsx" />
     <None Include="TestRProvider.fsx" />
     <None Include="TryDeedle.fsx" />
+    <None Include="TempScript.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Charting">

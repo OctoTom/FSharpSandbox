@@ -1,6 +1,6 @@
 ﻿module Histogram
 
-  // Converts list of items to list of pairs of neighbouring items in the input list
+  // Converts list of items to list of pairs of neighboring items in the input list
   let rec getPairs list =
     match list with
     | first::second::tail -> (first, second) :: getPairs (second::tail)
@@ -9,7 +9,7 @@
   let getBinMidpoints bins =
     bins |> getPairs |> List.map (fun (a, b) -> (a+b)/2.0) 
   
-  // Computes frequencies of data withing given bin
+  // Computes frequencies of data within given bin
   let getFrequencies bins data =
     // Indicates if given item falls in the given bin
     let fallsInBin bin item =

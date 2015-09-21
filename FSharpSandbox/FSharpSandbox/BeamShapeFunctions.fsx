@@ -4,13 +4,13 @@ let getDispField (L, dy, dz) nodalDisp0 nodalDisp1 =
   // Decompose the lists containing nodal displacements
   let [u0; v0; w0; phix0; phiy0; phiz0] = nodalDisp0
   let [u1; v1; w1; phix1; phiy1; phiz1] = nodalDisp1
-  // Displacement field - function that returns displacements u, v and w for fiven point x, y, z.
+  // Displacement field - function that returns displacements u, v and w for given point x, y, z.
   let dispField (x, y, z) =
     if (x < 0.0 || x > L || y < -dy/2.0 || y > dy/2.0 || z < -dz/2.0 || z > dz/2.0) then
       failwith "Point is outside the beam's volume."
-    // Local coordinate r randes from 0 to 1
+    // Local coordinate r ranges from 0 to 1
     let r = x / L
-    // Linear shape functions. Local coordinate r = 0 at node 0 and  r = 1 at notde 1.
+    // Linear shape functions. Local coordinate r = 0 at node 0 and r = 1 at node 1.
     let H0 = 1.0 - r
     let H1 = r
     // Define power operator
@@ -29,7 +29,7 @@ let getDispField (L, dy, dz) nodalDisp0 nodalDisp1 =
     let phix = H0 * phix0 + H1 * phix1
     let dv = dH2dx * v0 + dH3dx * v1 + dH4dx * phiz0 + dH5dx * phiz1 // = phiy
     let dw = dH2dx * w0 + dH3dx * w1 - dH4dx * phiy0 - dH5dx * phiy1 // = -phiz
-    // Dsiplacements at arbitrary point (x, y, z) in the beam's volume
+    // Displacements at arbitrary point (x, y, z) in the beam's volume
     let v = H2 * v0 + H3 * v1 + H4 * phiz0 + H5 * phiz1 - phix * z
     let w = H2 * w0 + H3 * w1 - H4 * phiy0 - H5 * phiy1 + phix * y
     let u = H0 * u0 + H1 * u1 - dv * y - dw * z
