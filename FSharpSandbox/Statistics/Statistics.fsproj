@@ -56,7 +56,11 @@
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="CorrelatedGenerator.fsx" />
+    <None Include="RandomProcessWithError.fsx" />
+    <None Include="NormalDistributionLikelihood.fsx" />
+    <None Include="SparseGrid.fsx" />
+    <None Include="SparseGridFun.fsx" />
+    <None Include="SparseGridFunPresentation.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

@@ -53,7 +53,7 @@ type Expr =
     | Div(Const x, Const y) -> Const (x / y)
     | _ -> x
 
-// Function returning opperator's name
+// Function returning operator's name
 let OpName (e: Expr) : string =
     match e with
     | Add(_, _) -> "+"
@@ -61,7 +61,7 @@ let OpName (e: Expr) : string =
     | Mul(_, _) -> "*"
     | Div(_, _) -> "/"
     | _ -> failwith(sprintf "Unrecognized operator [%A]" e)
-// Active pattern matching opperators
+// Active pattern matching operators
 let (|Op|_|) (x : Expr) =
   match x with
   | Add(e1, e2) -> Some(Add, e1, e2)

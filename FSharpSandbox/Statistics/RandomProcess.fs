@@ -3,12 +3,14 @@ module RandomProcess
 open MathNet.Numerics.LinearAlgebra
 
 // -- Auxiliary stuff ---------------------------------------------------------
-// Takes two list and creates list using custom mapping
+/// Takes two list and creates list using custom mapping
+/// productMap [1..3] [11..14] (*) --> [[11; 12; 13; 14]; [22; 24; 26; 28]; [33; 36; 39; 42]]
 let productMap xList yList mapping =
   let outerMapping xItem = yList |> List.map (mapping xItem)
   xList |> List.map outerMapping
+// Test: productMap [1..3] [11..14] (*)
 
-// Converts list of lists into matrix. Lists become rows.
+/// Converts list of lists into matrix. Lists become rows.
 let listsToMatrix (lists:float list list) =
   let m = lists.Length
   let n = lists.Head.Length
@@ -18,14 +20,17 @@ let listsToMatrix (lists:float list list) =
   matrix
 // ----------------------------------------------------------------------------
 
+// Covariance function.
+// Process variance (var), correlation length (theta) and distance (h).
+let covFun var hc h = var * System.Math.Exp(-2.0 * h / hc)
 
 // ====================================================================
 // == Gaussian Markov Random Field (GMRF) generation                 
 // Written according to "Spatial Process Generation.pdf", Algorithm 2.1
-let getRandomField (d1, d2) (n1, n2) covFunc =
+let getRandomField (dx1, dx2) (n1, n2) covFunc =
   // First get some points. For simplicity suppose points in grid.
-  let deltaX1 = d1 // [m]
-  let deltaX2 = d2 // [m]
+  let deltaX1 = dx1 // [m]
+  let deltaX2 = dx2 // [m]
 
   let numPoint1 = n1
   let numPoint2 = n2
@@ -52,9 +57,9 @@ let getRandomField (d1, d2) (n1, n2) covFunc =
     let h = diff.L2Norm() // Distance (scalar)
     covFunc h
 
-  // Covariance matric
-  let temp = productMap points points getCov
+  // Covariance matrix
   let Sigma =
+    let temp = productMap points points getCov
     let sigmaMat = temp |> listsToMatrix
     do printf "Size of matrix Sigma is: %A x %A.\n" sigmaMat.RowCount sigmaMat.ColumnCount
     sigmaMat
@@ -62,7 +67,9 @@ let getRandomField (d1, d2) (n1, n2) covFunc =
   // Lower and upper triangular
   let L =
     do printf "Cholesky decomposition started.\n"
-    Sigma.Cholesky().Factor
+    let res = Sigma.Cholesky().Factor
+    do printf "Cholesky decomposition completed.\n"
+    res
 
   let Z =
     let rnd = System.Random(0);
@@ -83,13 +90,11 @@ let getRandomField (d1, d2) (n1, n2) covFunc =
   
   // Return expression
   (points, gridValues)
-  
 
 //////////////////////////////////////////
 // let myArray = Array2D.init 1000 500 (fun x y -> 0.05 * float x * float y)
 
 let saveGridValuesAsBitmap fileName gridValues =
-
   let getMinMax (array:float[,]) =
     let width = array.GetLength 0
     let height = array.GetLength 1
@@ -120,36 +125,5 @@ let saveGridValuesAsBitmap fileName gridValues =
   
   // Return expression
   do gridValues |> normalize |> saveFieldToBitmap fileName
-
-// Adds the experiamental error to the list of values.
-// Argument stddev is the experimental standard deviation.
-let addNormalError stddev list =
-  let n = List.length list 
-  let err = MathNet.Numerics.Distributions.Normal.Samples(0.0, stddev) |> Seq.take(n) |> Seq.toList
-  List.map2 (fun x y -> x + y) list err
-
-// Adds n values of head at the begining of the list.
-// E.g. for n=2 the list [10; 9; 8] is transformed to [10; 10; 10; 9; 8]
-let addHeads n list =
-  let head = List.head list
-  let heads = List.init n (fun _ -> head)
-  heads @ list
-
-// Covariance function.
-// Process variance (var), correlation length (theta) and distance (h).
-let covFun var hc h = var * System.Math.Exp(-2.0 * h / hc)
-let var_nat = 4.0
-let hc = 10.0
-let (points, values) = getRandomField (4.0, 3.0) (10, 4) (covFun var_nat hc)
-let x1s = points |> Seq.map (fun x -> x.[0]) |> Seq.toList
-let x2s = points |> Seq.map (fun x -> x.[1]) |> Seq.toList
-let ys = values |> Seq.cast<float> |> Seq.toList
-let muY = ys |> List.average
-
-let n = List.length ys
-let nHead = 30
-let m = n + nHead
-let is_long = [1 .. n] |> addHeads nHead
-let ys_long = ys |> addHeads nHead |> addNormalError 1.0
 
 

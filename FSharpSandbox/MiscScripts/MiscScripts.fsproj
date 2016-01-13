@@ -55,6 +55,7 @@
     <None Include="packages.config" />
     <Content Include="Google.DataTable.Net.Wrapper.XML" />
     <None Include="app.config" />
+    <None Include="HoekBrown.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Google.DataTable.Net.Wrapper">

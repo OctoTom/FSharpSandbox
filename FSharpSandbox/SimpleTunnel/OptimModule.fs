@@ -1,5 +1,7 @@
 ﻿module OptimModule
 
+let aa = MathNet.Numerics.LinearAlgebra.Double.DenseVector.ofList
+
 // Computes sum of squares of differences in values of two lists.
 let sumOfSquares = List.fold2 (fun acc x y -> acc + (x - y) * (x - y)) 0.0
 
