@@ -33,3 +33,11 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChar
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\FSharp.Core.xml
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\obj\Debug\RealWorldFuncPieChart.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\obj\Debug\RealWorldFuncPieChart.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\RealWorldFuncPieChart.exe.config
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\RealWorldFuncPieChart.XML
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\RealWorldFuncPieChart.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\RealWorldFuncPieChart.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\FSharp.Core.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\bin\Debug\FSharp.Core.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\obj\Debug\RealWorldFuncPieChart.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealWorldFuncPieChart\obj\Debug\RealWorldFuncPieChart.pdb

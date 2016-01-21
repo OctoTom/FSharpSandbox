@@ -18,3 +18,13 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\FSharp.Core.xml
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\Statistics\obj\Debug\Statistics.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\Statistics\obj\Debug\Statistics.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\Statistics.exe.config
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\Statistics.XML
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\Statistics.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\Statistics.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\FSharp.Core.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\MathNet.Numerics.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\MathNet.Numerics.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\bin\Debug\FSharp.Core.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\obj\Debug\Statistics.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Statistics\obj\Debug\Statistics.pdb

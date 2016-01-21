@@ -41,7 +41,7 @@ type Expr =
       | Neg x -> Neg (Expr.Simplify x)
       | _ -> x
     if res = x then res else Expr.Simplify res
-  // Convertes left unbalanced tree of Add expressions to left unbalanced tree of Add or Sub expressions
+  // Converts left unbalanced tree of Add expressions to left unbalanced tree of Add or Sub expressions
   static member ToAddSubForm (x:Expr) =
     let res =
       match x with

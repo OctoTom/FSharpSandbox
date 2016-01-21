@@ -1,8 +1,8 @@
-﻿  // Vrhy minci
+﻿  // Coin tosses
   let tosses = [0; 1; 1; 1; 1; 0; 1; 1; 1; 0; 1; 1; 0; 0; 0; 1]
   //let tosses = [for i in 1..100 -> 0] @ [for i in 1..20 -> 1]
 
-  // Mince je rizena parametrem p = P(x=1). Protoze hodim jen 0 nebo 1 plati P(x=0) = 1-p
+  // The coin is controlled by parameter p = P(x=1) 1. Probability of head. Probability of tail is P(x=0) = 1-p.
   
   // Likelihood
   let L theta x =

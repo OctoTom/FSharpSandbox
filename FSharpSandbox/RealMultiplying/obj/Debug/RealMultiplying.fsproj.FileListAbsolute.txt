@@ -33,3 +33,11 @@ C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\FSharp.Core.xml
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.exe
 C:\Users\Tomas\Documents\GitHub\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\RealMultiplying.exe.config
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\RealMultiplying.XML
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\RealMultiplying.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\RealMultiplying.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\FSharp.Core.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Debug\FSharp.Core.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Debug\RealMultiplying.pdb

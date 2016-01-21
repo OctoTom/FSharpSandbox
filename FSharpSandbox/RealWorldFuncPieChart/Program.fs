@@ -26,7 +26,7 @@ let calculateSum rows =
     | (_, value) :: tail -> value + calculateSumRec tail
   calculateSumRec rows
 let res3 = res2 |> calculateSum
-let allLinesInFile = File.ReadAllLines(@"C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealWorldFuncPieChart\Data.csv") |> Seq.toList
+let allLinesInFile = File.ReadAllLines(__SOURCE_DIRECTORY__ + @"\" + "Data.csv") |> Seq.toList
 let parsedLines = allLinesInFile |> processLines
 let mySum = calculateSum parsedLines
 
