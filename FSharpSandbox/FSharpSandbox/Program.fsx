@@ -548,7 +548,22 @@ module TailRecursion =
       | x -> tailRecFact (x - 1) (acc * x)
     tailRecFact x 1
   let res = fact 4
-  
+
+// How deep is my stack?
+module StackDepth = 
+  // Non tail-recursive function with no stop condition.
+  // It prints the argument and increment it before recursive call.
+  // It is not tail recursive since it has "work to do" after the recursive call.
+  // In particular it multiplies the result by zero.
+  let rec recurse n = 
+     printfn "%d" n
+     1 * recurse (n + 1) 
+  recurse 0
+  // Tail recursive function
+  let rec recurse' n : int = 
+    printfn "%d" n
+    recurse' (n + 1)
+  recurse' 0
 
 // Closure
 module Closure =
@@ -1031,3 +1046,10 @@ module Interfaces =
 
   let list = [SomeClass1(1, 1.0) :> IPrintable; SomeClass2() :> IPrintable]
   do list |> List.iter (fun x -> x.Print())
+
+module RoundingError =
+  // Is (1/n + 1/n + ... + 1/n) - 1 greater or equal or less then zero.
+  let mapping n = n, System.Math.Sign((List.init n (fun _-> 1.0 / float n) |> List.sum) - 1.0)
+  [1..50] |> List.map mapping
+  let mapping2 n = n, sprintf "%e" ((List.init n (fun _-> 1.0 / float n) |> List.sum) - 1.0)
+  [1..50] |> List.map mapping2

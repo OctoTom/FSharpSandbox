@@ -92,7 +92,6 @@
     <None Include="DoingBayesianInference.fsx" />
     <None Include="TestRProvider.fsx" />
     <None Include="TryDeedle.fsx" />
-    <None Include="TempScript.fsx" />
     <None Include="SuavePlusPaket.fsx" />
   </ItemGroup>
   <ItemGroup>

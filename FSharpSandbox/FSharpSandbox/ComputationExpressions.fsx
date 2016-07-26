@@ -843,4 +843,68 @@ module Wadler3r =
 
 
 
+// Some monad build from scratch
+// http://fsharpforfunandprofit.com/posts/elevated-world/#apply
+type E<'T> = E of 'T // Eleveted type
+// Implement bind and return
+let bind (f: 'a -> E<'b>) m =
+  let (E x) = m
+  f x
+let (>>=) m f = bind f m
+let ret x = E x
+// Are the monadic laws satisfied?
+let x = "abc"
+let m = E "def"
+let f x = E (x, x)
+let g x = E [x]
+id (ret x) = ret (id x)
+bind ret m = m // Right unit
+bind f (ret x) = f x // Left unit
+(m |> bind f |> bind g) = (m |> bind (fun x -> (f x) |> bind g)) // Associativity
+// Implement map
+let map f m = bind (f >> ret) m
+let map' f = bind (f >> ret)
+// Is map implementation correct?
+map (id) (E 100)
+// Implement apply. This is what I was able to come with.
+let apply (g : E<'a->'b>) (m : E<'a>) =
+  m |> bind (fun a -> g |> bind (fun f -> E (f a)))
+let apply' (g : E<'a->'b>) (m : E<'a>) =
+  g |> bind (fun f -> m |> bind (fun a -> E (f a)))
+let apply'' g m = // Without type annotations
+  m |> bind (fun a -> g |> bind (fun f -> E (f a)))
+// Is the first applicative law satisfied?
+let idInt : (int -> int) = id
+let supposedIdentityF = idInt |> ret |> apply
+supposedIdentityF (E 42)
+let supposedIdentityF' = idInt |> ret |> apply'
+supposedIdentityF' (E 42)
+// Is the second applicative law satisfied?
+let f x = x * x
+let x = 42
+x |> f |> ret =  apply (ret f) (ret x)
 
+
+
+
+// Logging monad
+type M<'a> = M of 'a * string list
+let retn x = M (x, [])
+let bind (f: 'a -> M<'b>) m =
+  let (M (x, list)) = m // Unwraping
+  let (M (y, newList)) = f x
+  M (y, newList @ list)
+let (>>=) m f = bind f m
+
+let incr x = x + 1
+let decr x = x - 1
+
+let elevate f =
+  fun x ->
+    let y = f x
+    M (y, [sprintf "Input: %A, Output: %A" x y])
+
+let incrM = elevate incr
+let decrM = elevate decr
+
+42 |> incrM >>= incrM >>= decrM

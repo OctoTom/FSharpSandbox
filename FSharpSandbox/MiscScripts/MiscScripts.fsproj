@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
     <Name>MiscScripts</Name>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,15 +51,36 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <None Include="MotoBike.fsx" />
-    <None Include="TriglavTripCost.fsx" />
     <None Include="GeoTools.fsx" />
     <None Include="packages.config" />
-    <Content Include="Google.DataTable.Net.Wrapper.XML" />
     <None Include="app.config" />
     <None Include="HoekBrown.fsx" />
+    <None Include="ThreePointDynamics.fsx" />
+    <None Include="TestMKL.fsx" />
+    <None Include="TestProAnicku.fsx" />
+    <None Include="SM3Stats.fsx" />
+    <None Include="TriLayerElement.fsx" />
+    <None Include="TriLayerModel.fsx" />
+    <None Include="SimpleVisco.fsx" />
+    <None Include="MaxwellCalibration.fsx" />
+    <None Include="PrintedCubes3D.fsx" />
+    <None Include="CSFDProgramme.fsx" />
+    <None Include="Symbolics.fsx" />
+    <None Include="Strata.fsx" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FParsec">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\FParsec.1.0.1\lib\net40-client\FParsec.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FParsecCS">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\FParsec.1.0.1\lib\net40-client\FParsecCS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\FSharp.Core.3.1.2.5\lib\net40\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Google.DataTable.Net.Wrapper">
       <HintPath>..\packages\Google.DataTable.Net.Wrapper.3.1.2.0\lib\Google.DataTable.Net.Wrapper.dll</HintPath>
       <Private>True</Private>
@@ -66,10 +89,19 @@
       <HintPath>..\packages\Http.fs.1.5.1\lib\net40\HttpClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Reference Include="MathNet.Numerics">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\MathNet.Numerics.3.8.0\lib\net40\MathNet.Numerics.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MathNet.Numerics.FSharp">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\MathNet.Numerics.FSharp.3.8.0\lib\net40\MathNet.Numerics.FSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Symbolics">
+      <HintPath>C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\packages\MathNet.Symbolics.0.9.0\lib\net40\MathNet.Symbolics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -94,6 +126,13 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <Import Project="..\packages\MathNet.Numerics.MKL.Win.1.8.0\build\MathNet.Numerics.MKL.Win.targets" Condition="Exists('..\packages\MathNet.Numerics.MKL.Win.1.8.0\build\MathNet.Numerics.MKL.Win.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MathNet.Numerics.MKL.Win.1.8.0\build\MathNet.Numerics.MKL.Win.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MathNet.Numerics.MKL.Win.1.8.0\build\MathNet.Numerics.MKL.Win.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

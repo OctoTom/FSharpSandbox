@@ -3,6 +3,7 @@
 // https://en.wikipedia.org/wiki/Sparse_grid
 // We need to formulate the tensor product of 1D quadratures
 // ---------------------------------------------------------
+
 #time
 #load @"c:\Users\Tomas\Scripts\NuGet\LoadPackages.fsx"
 
@@ -17,6 +18,7 @@ let quadrature1D f1D =
   let wi = [0.5; 1.0; 0.5]
   let xi = [-1.0; 0.0; 1.0]
   List.map2 (fun w x -> w * f1D x) wi xi |> List.sum
+
 
 // Tensor product of TWO 1D quadratures
 // It creates ONE 2D quadrature
@@ -203,6 +205,7 @@ Qfull 2 4 f2
 Qsparse 2 4 f2
 Qsparse 2 4 f2m
 
+4 * 8 * 8
 
 
 // Memoizer with counter
@@ -230,3 +233,5 @@ let memF, informer = memoizeWithCounter false f
 memF 1
 memF 2
 informer ()
+
+
