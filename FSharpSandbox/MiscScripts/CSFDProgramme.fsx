@@ -4,10 +4,8 @@
 /// Downloads the progremme of cinnemas in Prague from the CSFD database.
 /// Open the page in browser.
 /// Parses the file, sorts the films by year.
-/// Prints names and years to console.
-
-/// Usage from visual studio: select whole text in file and press Alt-Enter.
-
+/// Prints names and years to the F# interactive console.
+/// (Usage from visual studio: select whole text in file and press Alt-Enter.)
 
 let url = @"http://www.csfd.cz/kino/?period=all"
 let fileName = @"c:\Users\Tomas\Downloads\ProgramKinCSFD.html"
