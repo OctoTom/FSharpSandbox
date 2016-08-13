@@ -11,7 +11,7 @@ open MathNet.Numerics
 open MathNet.Numerics.LinearAlgebra
 open FSharp.Charting
 
-/// Units are those of SI: m, s, N, kg 
+/// Units are those of SI: m, s, kg, N, Pa
 
 module Types = 
   /// Stores material properties
@@ -45,23 +45,37 @@ module Types =
       beta : float
       /// Parameter gamma in Hughes implicit integration scheme.
       gamma : float
-      /// Time step
+      /// Time step of computations. (Prescribed accelerogram may have different time step)
       dt : float
     }
+
+  /// State that updates with each time step
+  type unknowns =
+    {
+      /// Nodal acceleration
+      a : MathNet.Numerics.LinearAlgebra.Vector<float>
+      /// Nodal velocity
+      v : MathNet.Numerics.LinearAlgebra.Vector<float>
+      /// Nodal displacement
+      d : MathNet.Numerics.LinearAlgebra.Vector<float>
+    } 
 // End of Types module.
 
 open Types
 
+///  element stiffness matrix
 let getK (e : element) =
   let k = e.material.E * e.A / e.L
   let array = [k; -k; -k; k] |> List.toArray
   MathNet.Numerics.LinearAlgebra.Matrix<float>.Build.Dense(2, 2, array)
 
+/// Returns element mass matrix
 let getM (e : element) =
   let m = e.material.rho * e.A * e.L
   let array = [m/3.0; m/6.0; m/6.0; m/3.0] |> List.toArray
   MathNet.Numerics.LinearAlgebra.Matrix<float>.Build.Dense(2, 2, array)
 
+/// Returns the number of DOFs as the highest code number plus one.
 let getNumDOF (es : element list) = 
   let getElementMaxCN e = e.cn |> List.max
   let maxCN = es |> List.maxBy getElementMaxCN |> getElementMaxCN
@@ -83,24 +97,52 @@ let localize (es : element list) (mapping : element -> Matrix<float>) =
   es |> List.iter localizeElement
   matrix
 
-/// Input data
-let m1 = {E = 1000.0; rho = 2000.0}
-let e1 : element = { material = m1; A = 1.0; L = 1.0; cn = [0; 1]}
-let e2 : element = { material = m1; A = 1.0; L = 2.0; cn = [1; 2]}
+/// Takes time series with constant time step DT
+/// and generates time series with finner step dt. 
+let interpolate DT (data : float list) dt =
+  let scale = DT / dt
+  let N = data.Length
+  let initializer i =
+    let index = float i / scale |> int // Whole part of the number
+    if index < N - 1 then
+      let fraction = float i / scale - float index
+      Some (data.[index] + fraction * (data.[index + 1] - data.[index]))
+    else
+      None
+  Seq.initInfinite initializer |> Seq.takeWhile (fun x -> x.IsSome) |> Seq.choose id |> Seq.toList
+
+
+
+
+
+
+//============//
+// Input data // 
+//============//
+let m1 = {E = 2.0e9; rho = 2.0e3}
+let e1 : element = { material = m1; A = 1.0; L = 10.0; cn = [0; 1]}
+let e2 : element = { material = m1; A = 1.0; L = 10.0; cn = [1; 2]}
+let e3 : element = { material = m1; A = 1.0; L = 10.0; cn = [2; 3]}
+let e4 : element = { material = m1; A = 1.0; L = 10.0; cn = [3; 4]}
 /// List of elements
-let es = [e1; e2]
-/// Prescribed accelerogram
-let a_I0 = [0.0; 0.0; 1.0; 0.0; 0.0; -1.0; 0.0; 0.0; 0.0; 0.0]
+let es = [e1; e2; e3; e4]
+/// Prescribed accelerogram time step
+let accelerogramTimeStep = 0.01
+/// Prescribed accelerogram data
+let accelerogram = [0.0; 0.0; 1.0; 0.0; 0.0; -1.0; 0.0; 0.0; 0.0; 0.0] @ [for i in [0..9] -> 0.0]
+/// Solution parameters
 let sp =
-  let alpha = 0.0
-  //let alpha = -1.0 / 3.0
+  //let alpha = 0.0
+  let alpha = -1.0 / 3.0
   {
     alpha = alpha
     beta = (1.0 - alpha)**2.0 / 4.0
     gamma = (1.0 - 2.0 * alpha) / 2.0
-    dt = 0.01
+    dt = 0.001
   }
 
+/// Number of degrees of freedom
+let numDOF = getNumDOF es
 /// Global stiffness matrix
 let matrixK = localize es getK
 /// Global mass matrix
@@ -128,6 +170,11 @@ let getRHS (a_I0alpha : Vector<float>, v_I0alpha : Vector<float>, an : Vector<fl
   let dt = sp.dt
   let helperMatrix1 = (1.0 + alpha) * ((1.0 - gamma) * dt * matrixC + (1.0 - 2.0 * beta) * dt**2.0 / 2.0 * matrixK)
   let helperMatrix2 = (matrixC + (1.0 + alpha) * dt * matrixK)
+//  printfn "matrixM = %A" matrixM
+//  printfn "matrixC = %A" matrixC
+//  printfn "matrixK = %A" matrixK
+//  printfn "helperMatrix1 = %A" helperMatrix1
+//  printfn "helperMatrix2 = %A" helperMatrix2
   -matrixM * a_I0alpha + matrixC * v_I0alpha - helperMatrix1 * an - helperMatrix2 * vn - matrixK * dn
 
 /// Integrates accelerogram (with equidistant points)
@@ -142,6 +189,93 @@ let integrateAcceleration (beta, gamma) dt aList =
     | _ -> [a1], [0.0], [0.0] 
   let a, v, d = List.fold folder ([], [], []) aList // Value a is the same as aList. No need to return it.
   List.rev v, List.rev d
+
+/// Time series of velocity loading.
+let a_I0 = interpolate accelerogramTimeStep accelerogram sp.dt
+let v_I0, d_I0 = integrateAcceleration (sp.beta, sp.gamma) sp.dt a_I0
+a_I0 |> Chart.Point
+v_I0 |> Chart.Point
+
+/// Returns list of values expressed at t_(n+alpha)
+let getAlphaValues alpha list =
+  let rec loop list =
+    match list with
+    | x0 :: x1 :: tail -> ((1.0 + alpha) * x1 - alpha * x0) :: (loop (x1 :: tail))
+    | _ -> []
+  loop list
+//getAlphaValues (-1.0 / 3.0) [1.0; 2.0; 4.0]
+
+/// List of intermediate (n+beta) values of prescribed acceleration.
+let a_I0alpha = getAlphaValues sp.alpha a_I0
+/// List of intermediate (n+beta) values of prescribed velocity.
+let v_I0alpha = getAlphaValues sp.alpha v_I0
+// Charts
+//let chAa = Chart.Line a_I0alpha |> Chart.WithTitle("Acceleration (alpha)")
+//let chVa = Chart.Line v_I0alpha |> Chart.WithTitle("Velocity (alpha)")
+
+/// Loading values of acceleration and velocity
+let av_I0alpha = List.zip a_I0alpha v_I0alpha
+/// Initial state of the folding process.
+/// It is 
+
+/// Initial state. It consists of 
+let initState : unknowns list =
+  let numDOF = getNumDOF es
+  {
+    a = Vector<float>.Build.Dense(numDOF)
+    v = Vector<float>.Build.Dense(numDOF)
+    d = Vector<float>.Build.Dense(numDOF)
+  } :: []
+
+let folder (state : unknowns list) (x : float * float) =
+  let beta, gamma = sp.beta, sp.gamma
+  let dt = sp.dt
+  match state with
+  | {a = a0; v = v0; d = d0} :: tail ->
+    let aI0AlphaVec = (fst x) * Vector<float>.Build.Dense(numDOF, (fun i -> 1.0))
+    let vI0AlphaVec = (snd x) * Vector<float>.Build.Dense(numDOF, (fun i -> 1.0))
+    let rhs = getRHS (aI0AlphaVec, vI0AlphaVec, a0, v0, d0)
+    // printfn "RHS = %A" rhs
+    let a1 = matrixA.Solve(rhs)
+    let v1 = v0 + dt * ((1.0 - gamma) * a0 + gamma * a1)
+    let d1 = d0 + dt * v0 + dt * dt / 2.0 * ((1.0 - 2.0 * beta) * a0 + 2.0 * beta * a1)
+    {a = a1; v = v1; d = d1} :: state
+  | _ -> failwith "Empty list of unknowns."
+
+let result = List.fold folder initState av_I0alpha |> List.rev
+
+[
+  result |> List.map (fun x -> x.a.[0]) |> Chart.Line
+  result |> List.map (fun x -> x.a.[1]) |> Chart.Line
+  result |> List.map (fun x -> x.a.[2]) |> Chart.Line
+] |> Chart.Combine
+[
+  result |> List.map (fun x -> x.v.[0]) |> Chart.Line
+  result |> List.map (fun x -> x.v.[1]) |> Chart.Line
+  result |> List.map (fun x -> x.v.[2]) |> Chart.Line
+] |> Chart.Combine
+[
+  result |> List.map (fun x -> x.d.[0]) |> Chart.Line
+  result |> List.map (fun x -> x.d.[1]) |> Chart.Line
+  result |> List.map (fun x -> x.d.[2]) |> Chart.Line
+  d_I0 |> Chart.Line  
+] |> Chart.Combine
+
+[
+  result |> List.map (fun x -> x.d.[0]) |> List.map2 (+) d_I0 |> Chart.Line
+  result |> List.map (fun x -> x.d.[1]) |> List.map2 (+) d_I0 |> Chart.Line
+  result |> List.map (fun x -> x.d.[2]) |> List.map2 (+) d_I0 |> Chart.Line
+  result |> List.map (fun x -> x.d.[3]) |> List.map2 (+) d_I0 |> Chart.Line
+  result |> List.map (fun x -> x.d.[4]) |> List.map2 (+) d_I0 |> Chart.Line
+  d_I0 |> Chart.Line  
+] |> Chart.Combine
+
+
+
+
+
+
+
 
 module TestAccelerationIntegration = 
   /// Values of the solution parameters
@@ -173,3 +307,9 @@ module TestAccelerationIntegration =
   let chD = [Chart.Line d_I0; Chart.Line d_I0'] |> Chart.Combine |> Chart.WithTitle("Displacement")
 // End of TestAccelerationIntegration module
 
+
+module TestInterpolation =
+  let data = [1.0; 0.0; 2.0]
+  let DT = 10.0
+  let dt = 0.6
+  let chart = interpolate DT data dt |> Chart.Point
