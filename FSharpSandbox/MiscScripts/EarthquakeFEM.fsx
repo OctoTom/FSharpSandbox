@@ -248,7 +248,7 @@ let solve input =
 //============//
 let input = 
   // Material
-  let m1 = {E = 2.0e9; rho = 2.0e3}
+  let m1 = {E = 4.0e9; rho = 2.0e3}
   let m2 = {E = 1.0e9; rho = 2.0e3}
   let numElem = 100
   // Return record of type "input"
@@ -268,7 +268,7 @@ let input =
         alpha = alpha
         beta = (1.0 - alpha)**2.0 / 4.0
         gamma = (1.0 - 2.0 * alpha) / 2.0
-        dt = 0.001
+        dt = 0.01
       }
   }
 
