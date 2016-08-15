@@ -59,14 +59,15 @@
     <None Include="TestMKL.fsx" />
     <None Include="TestProAnicku.fsx" />
     <None Include="SM3Stats.fsx" />
+    <None Include="PrintedCubes3D.fsx" />
+    <None Include="CSFDProgramme.fsx" />
+    <None Include="Symbolics.fsx" />
     <None Include="TriLayerElement.fsx" />
     <None Include="TriLayerModel.fsx" />
     <None Include="SimpleVisco.fsx" />
     <None Include="MaxwellCalibration.fsx" />
-    <None Include="PrintedCubes3D.fsx" />
-    <None Include="CSFDProgramme.fsx" />
-    <None Include="Symbolics.fsx" />
     <None Include="Strata.fsx" />
+    <None Include="EarthquakeFEM.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FParsec">

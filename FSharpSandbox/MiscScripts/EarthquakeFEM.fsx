@@ -8,8 +8,8 @@ open System.Runtime.InteropServices
 open System.IO
 open System.Numerics // System.Numerics.Complex
 open MathNet.Numerics
-open MathNet.Numerics.LinearAlgebra
-open FSharp.Charting
+open MathNet.Numerics.LinearAlgebra // Vector<>, Matrix<>
+open FSharp.Charting // Chart
 
 /// SI units are used in this script (m, s, kg, N, Pa).
 
@@ -242,53 +242,62 @@ let solve input =
     List.map2 mapping results avd_I0
   /// Return output record
   {relativeFields = results; totalFields = totalResults; inputSignal = (List.zip3 a_I0 v_I0 d_I0); numDof = numDOF}
-  
-
+ 
 //============//
 // Input data // 
 //============//
 let input = 
   // Material
   let m1 = {E = 2.0e9; rho = 2.0e3}
+  let m2 = {E = 1.0e9; rho = 2.0e3}
+  let numElem = 100
   // Return record of type "input"
   {
     /// List of elements
-    es = List.init 100 (fun i -> { material = m1; A = 1.0; L = 0.5; cn = [i; i + 1]})
+    es =
+      let initializer i = {material = (if i < 50 then m1 else m2); A = 1.0; L = 1.0; cn = [i; i + 1]}
+      List.init numElem initializer
     /// Prescribed accelerogram time step
     accelerogramTimeStep = 0.01
     /// Prescribed accelerogram data
-    accelerogram = [0.0; 1.0; -2.0; 1.0; 0.0] @ [for i in [0..10] -> 0.0]
+    accelerogram = [0.0; 1.0; -2.0; 1.0; 0.0] @ List.init 40 (fun _ -> 0.0)
     /// Solution parameters
     sp =
-      let alpha = 0.0
-      //let alpha = -1.0 / 3.0
+      let alpha = -1.0 / 3.0 // Parameter alpha belongs to <-1/3, 0>
       {
         alpha = alpha
         beta = (1.0 - alpha)**2.0 / 4.0
-        //beta = 0.0
         gamma = (1.0 - 2.0 * alpha) / 2.0
-        //gamma = 0.0
         dt = 0.001
       }
   }
 
+
 /// Run the analysis for given input
-let result = solve input
+let output = solve input
+
 
 /// Plot time evolution of displacement in all nodes
-[for i in 0 .. 10 .. result.totalFields.Head.a.Count - 1
-  -> Chart.FastLine(result.totalFields |> List.map (fun x -> x.d.[i]), Name=sprintf "%A" i)
-] |> Chart.Combine |> Chart.WithLegend(true)
+[for i in 0 .. 10 .. output.totalFields.Head.a.Count - 1
+  -> Chart.FastLine(output.totalFields |> List.map (fun x -> x.d.[i]), Name=sprintf "Element %A" i)
+] |> Chart.Combine |> Chart.WithLegend(true) |> Chart.WithXAxis(Title = "t [s]")
 
-/// Plot time evolution of acceleration in all nodes
-[for i in 0 .. 10 .. result.totalFields.Head.a.Count - 1
-  -> Chart.FastLine(result.totalFields |> List.map (fun x -> x.a.[i]), Name=sprintf "%A" i)
-] |> Chart.Combine |> Chart.WithLegend(true)
+/// Save displacement fields in each timestep in
+let takeEvery = 5
+let action i x =
+  if i % takeEvery = 0 then
+    x.d
+    |> Seq.toList
+    |> Chart.FastLine
+    |> Chart.WithYAxis(Max = 2.0e-4, Min = -2.0e-4)
+    |> Chart.Save(sprintf "c:/Users/Tomas/Temp/disp%04d.png" i)
+  else ()
+output.totalFields |> List.iteri action 
 
-/// Ad hoc scaled.
+/// Input signal. Acceleration, velocity and displacement. Ad hoc scaling.
 [
-  Chart.Line(result.inputSignal |> List.map (fun (a, _, _) -> a), Name= "a_I0")
-  Chart.Line(result.inputSignal |> List.map (fun (_, v, _) -> 100.0*v), Name= "v_I0")
-  Chart.Line(result.inputSignal |> List.map (fun (_, _, d) -> 10000.0*d), Name= "d_I0")
+  Chart.Line(output.inputSignal |> List.map (fun (a, _, _) -> a), Name= "a_I0")
+  Chart.Line(output.inputSignal |> List.map (fun (_, v, _) -> 100.0*v), Name= "v_I0")
+  Chart.Line(output.inputSignal |> List.map (fun (_, _, d) -> 10000.0*d), Name= "d_I0")
 ] |> Chart.Combine |> Chart.WithLegend(true)
 
