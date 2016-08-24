@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpSandbox", "FSharpSandbox\FSharpSandbox.fsproj", "{C8DEF0F5-5216-48B8-B14B-1CE0D60EAF3F}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RealWorldFuncPieChart", "RealWorldFuncPieChart\RealWorldFuncPieChart.fsproj", "{50089A54-B4AB-4FFD-B56C-4718CB014D4F}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RealMultiplying", "RealMultiplying\RealMultiplying.fsproj", "{3C122DC3-017C-48F4-851D-668303158313}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleTunnel", "SimpleTunnel\SimpleTunnel.fsproj", "{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A7AE38C-6B09-4510-A9B2-3EE0EC03F6F9}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,6 +25,9 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Statistics", "Statistics\Statistics.fsproj", "{EAD3FCB7-548D-475F-8A95-27F4CB482B24}"
 EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -94,18 +95,6 @@ Global
 		{3C122DC3-017C-48F4-851D-668303158313}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3C122DC3-017C-48F4-851D-668303158313}.Release|Win32.ActiveCfg = Release|Any CPU
 		{3C122DC3-017C-48F4-851D-668303158313}.Release|x86.ActiveCfg = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|Win32.ActiveCfg = Release|Any CPU
-		{EF6AEC37-0472-4DFF-9883-7844D4CF8F9A}.Release|x86.ActiveCfg = Release|Any CPU
 		{DDF17062-106B-4FF1-85CC-6221D2E67ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DDF17062-106B-4FF1-85CC-6221D2E67ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF17062-106B-4FF1-85CC-6221D2E67ACF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

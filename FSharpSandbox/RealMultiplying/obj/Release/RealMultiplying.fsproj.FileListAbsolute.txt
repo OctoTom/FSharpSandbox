@@ -6,3 +6,11 @@ C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\
 C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\bin\Release\FSharp.Core.xml
 C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.exe
 C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.exe.config
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.XML
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\RealMultiplying.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\FSharp.Core.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\bin\Release\FSharp.Core.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.exe
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\RealMultiplying\obj\Release\RealMultiplying.pdb

@@ -1,8 +1,2 @@
-﻿  TriaxTest.cpp
-c:\users\tomas\onedrive\onesync\projects\fsharpsandbox\fsharpsandbox\triaxtest\triaxtest.cpp(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\tomas\onedrive\onesync\projects\fsharpsandbox\fsharpsandbox\triaxtest\triaxtest.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\tomas\onedrive\onesync\projects\fsharpsandbox\fsharpsandbox\triaxtest\triaxtest.cpp(261): warning C4018: '<': signed/unsigned mismatch
-c:\users\tomas\onedrive\onesync\projects\fsharpsandbox\fsharpsandbox\triaxtest\triaxtest.cpp(451): warning C4102: 'std': unreferenced label
-  stdafx.cpp
-  Generating Code...
-  TriaxTest.vcxproj -> C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Debug\TriaxTest.exe
+﻿  TriaxTest.vcxproj -> C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Debug\TriaxTest.exe
+  TriaxTest.vcxproj -> C:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\Debug\TriaxTest.pdb (Full PDB)

@@ -4,7 +4,6 @@
 open System
 open System.Windows.Forms
 open MathNet.Numerics.LinearAlgebra.Double
-open MathNet.Numerics.LinearAlgebra.Generic
 open FSharp.Charting
 
 open LogModule
@@ -14,7 +13,7 @@ module Model2d3d =
   // ==== GENERAL UTILS ====
   let shearModulus E nu = E / 2.0 / (1.0 + nu)
   let edomModulus E nu = E * (1.0 - nu) / (1.0 + nu) / (1.0 - 2.0 * nu)
-  let vecToList (x:Matrix<float>) = if x.ColumnCount <> 1 then failwith "Not a coulumn vector" else x.Column(0).ToArray() |> Array.toList
+  let vecToList (x:Matrix) = if x.ColumnCount <> 1 then failwith "Not a coulumn vector" else x.Column(0).ToArray() |> Array.toList
   /// Computes the total displacement (setlement) in 2d3d as a sum of all incremental settlements deltaDisp.
   /// Wtot = deltaW * (1 + 2 * exp(alpha * deltaZ / 2)/(exp(alpha * deltaZ / 2) - 1)  
   let totalDisp alpha_z deltaZ incremDisp =

@@ -1,20 +1,27 @@
-﻿// F# syntax intro
+﻿// ---------------------------------------
+// F# syntax intro
 // ---------------------------------------
 
+// F# is "functional-first" but enables OOP patterns.
 // F# code compiles to .NET CLR or it can be sent to F# interactive console (REPL).
+// Multi-platform Windows, Linux.
 
-// Everything is an expression
+
+// Everything is an expression. Every expression has a type.
+// We can select any chunk of code defining expression and evaluate it by sending it to F# interactive (console).
 
 // Literals are expressions, i.e. they have type and particular value of the type.
 1 // val it : int = 1
 1.0
 'a'
-"a"
+"abc"
 true
 [1;2] // 
 (1, 1.0)
 () // This is the only value the object of the unit can have.
 null // null is introduced only for compatibility with .NET. It is not idiomatic since it is not a value. 
+
+(fun x -> x) = (fun y -> y)
 
 // Anonymous functions, aka function literals, lambda expressions.
 fun x -> x // Identity function.
@@ -33,19 +40,30 @@ f x
 (fun x -> [x]) 42
 (fun x -> (x, x)) 42
 
-// There are only functions of one argument in F#, but it can be tuple.
+// There are only functions of one argument in F#!
+
+// (but the argument can be a tuple)
 fun (x, y) -> [x; y]
-// Or function that returns function
+
+// OR
+
+// The function of one agument may return function of the other argument that returns the value.
 fun x -> (fun y -> [x; y])
 // or equivalently without parenthesis
 fun x -> fun y -> [x; y]
 // or eqvivalently with suggered syntax
 fun x y -> [x; y]
+// This is the most common way to defining function of more than one parameter.
+// It is a functinon that takes x and returns a function that takes y and returns x and y stored in list.
 
-// An these can be applied
+
+// And this function can be to two parameters.
 ((fun x y -> [x; y]) 1) 2
 (fun x y -> [x; y]) 1 2     // Function application is left associative
 (fun x y -> [x; y]) 1       // is a partially applied function. It waits for input value x and makes a list.
+
+// Until now we did not name anything (apart from the function parameters x and y).
+// All functions were anonymous. This is not very practical but it shows the concepts of "everytin is expression"
 
 // Predefined operators
 (+) // Binary operators enclosed parenthesis are just functions of two argumets. 
@@ -88,8 +106,10 @@ add' 2 (add' 3 42)
 // Patterns
 let tuple = 1 + 1, 2 + 2
 let a, b = tuple // The tuple gets decompsed
+// Single-linked list gets decomposed to "head" and "tail".
 let h :: t = [1..10]
 
+// Pattern matching
 let x = []
 match x with
 | h::t -> sprintf "Head is %A, tail is %A." h t
@@ -101,6 +121,7 @@ let rec map f list =
   | [] -> []
 map (fun x -> 2 * x) [1..10]
 map ((*) 2) [1..10]
+[1..10] |> map ((*) 2) |> map (fun x -> x + 1)
 
 // Reduce uses function 
 let rec reduce f list =
@@ -113,47 +134,8 @@ let sum = reduce (+)
 sum [1..10]
 let product = reduce (*)
 let max a b = if a > b then a else b
-let maxItem (list: int list) = reduce max list
-maxItem [1..10]
-
-  
-
-
-
-
-// Definition of immutable value
-let a = 1
-// val a : int = 1
-let a = 2
-
-// Definition of a function of one argument
-let twice a = 2 * a
-// val twice : a:int -> int
-
-// Equivalent as above
-let twice' = fun a -> 2 * a
-
-// Definition of a function of two arguments
-let add a b = a + b
-// val add : a:int -> b:int -> int
-
-// Function value, equivalent as above.
-let add' = fun a b -> a + b
-
-
-// Operator (->) in type description is right associative: "int -> int -> int" is the same as  "int -> (int -> int)".
-// Function Application is left associative: f x y <==> (f x) y
-
-// This is aslo the same as the above
-let add'' a =
-  let incrByA b = a + b
-  incrByA
-
-List.map twice [1..10]
-
-// Values can be piped through the functions
-[1..10] |> List.map twice |> List.map (add 1) // (add 1) is partially applied function
-
+let getMaxItem (list : int list) = reduce max list
+getMaxItem [1..10]
 // -- End of F# syntax intro -------------------------------------
 
 
@@ -172,6 +154,39 @@ List.map twice [1..10]
 // On the other hand on https://en.wikipedia.org/wiki/Sparse_grid we have just one formula and no points or weights are even mentioned.
 
 // Thus quadrature is a functional. It takes function and returns number
+
+// Function that adds two real numbers
+let addVs (a : float) (b : float) = 
+  a + b
+// Test it
+addVs 1.0 2.0
+
+// Function that adds two real functions of one variable
+let addFunctions (f : float -> float) (g : float -> float) =
+  let result x = f x + g x
+  result
+// Test it
+let sinTwice = addFunctions sin sin
+sinTwice (System.Math.PI / 2.0)
+
+// One-liners of the abbove. No type anotations.
+let addFs' f g = fun x -> f x + g x
+(addFs' sin sin) (System.Math.PI / 2.0)
+// OR even
+let addFs'' f g x = f x + g x
+(addFs'' sin sin) (System.Math.PI / 2.0)
+
+// Function that adds two quadratures (functionals)
+let addQs (q1 : (float -> float) -> float) (q2 : (float -> float) -> float) =
+  let result f = q1 f + q2 f
+  result
+// Test it
+let q (f : float -> float) =
+  (f 0.0 + f 1.0) / 2.0
+q id
+let qTwice = addQs q q
+qTwice id
+
 
 
 // Type abbreviations

@@ -1053,3 +1053,16 @@ module RoundingError =
   [1..50] |> List.map mapping
   let mapping2 n = n, sprintf "%e" ((List.init n (fun _-> 1.0 / float n) |> List.sum) - 1.0)
   [1..50] |> List.map mapping2
+
+/// Interesting series of numbers 0-9.
+module DigitSeries =
+  let generator state =
+    match state with
+    | (a, b) ->
+      let c = if a + b < 10 then a + b else a + b - 10
+      Some (a , (b, c))
+  let initState = (1, 3)
+  let series = Seq.unfold generator initState |> Seq.take 10000
+  /// Why are the odd numbers twice as common for (0, 1)?
+  /// Why there are no zeros for (1, 3)?
+  [0..9] |> List.map (fun i -> series |> Seq.filter (fun a -> a = i) |> Seq.length)

@@ -2,5 +2,215 @@
 <doc>
 <assembly><name>FSharpSandbox</name></assembly>
 <members>
+<member name="P:Program.Earthquake.output">
+<summary>
+ Run the analysis for given input
+</summary>
+</member>
+<member name="P:Program.Earthquake.critDT">
+<summary>
+ Maximum recomanded time step.
+ Formula taken from Hughes&apos;s book for linear 1d rod element with full mass matrix.
+</summary>
+</member>
+<member name="P:Program.Earthquake.input">
+<summary>
+ Return output record
+</summary>
+</member>
+<member name="M:Program.Earthquake.solve(Program.Types.input)">
+<summary>
+ Save displacement fields in each timestep in
+ Main analysis driver
+</summary>
+</member>
+<member name="M:Program.Earthquake.interpolate(System.Double,Microsoft.FSharp.Collections.FSharpList{System.Double},System.Double)">
+<summary>
+ Takes time series with constant time step DT
+ and generates time series with finner step dt. 
+</summary>
+</member>
+<member name="M:Program.Earthquake.localize(Microsoft.FSharp.Collections.FSharpList{Program.Types.element},Microsoft.FSharp.Core.FSharpFunc{Program.Types.element,MathNet.Numerics.LinearAlgebra.Double.DenseMatrix})">
+<summary>
+ Localizes element matrices to global matrix.
+ Mapping selects the matrices which are to be localized, i.e. stiffness or mass matrix.
+</summary>
+</member>
+<member name="M:Program.Earthquake.getNumDOF(Microsoft.FSharp.Collections.FSharpList{Program.Types.element})">
+<summary>
+ Returns the number of DOFs as the highest code number plus one.
+</summary>
+</member>
+<member name="M:Program.Earthquake.getM(Program.Types.element)">
+<summary>
+ Returns mass matrix of given element
+</summary>
+</member>
+<member name="M:Program.Earthquake.getK(Program.Types.element)">
+<summary>
+ Returns stiffness matrix of given element
+</summary>
+</member>
+<member name="P:Program.Types.output.numDof">
+<summary>
+ Number of degrees of freedom.
+</summary>
+</member>
+<member name="P:Program.Types.output.inputSignal_alpha">
+<summary>
+ Input signal a, v and d. The intermediate (alpha) values.
+</summary>
+</member>
+<member name="P:Program.Types.output.inputSignal">
+<summary>
+ Input signal a, v and d. 
+</summary>
+</member>
+<member name="P:Program.Types.output.totalFields">
+<summary>
+ Total field, i.e. relative plus input time series.
+</summary>
+</member>
+<member name="P:Program.Types.output.relativeFields">
+<summary>
+ Relative field (relative to the input signal) time series.
+</summary>
+</member>
+<member name="T:Program.Types.output">
+<summary>
+ Record containing all information returning from the analysis. 
+</summary>
+</member>
+<member name="P:Program.Types.input.gamma_I0">
+<summary>
+ Parameter gamma used in a_I0 integration.
+</summary>
+</member>
+<member name="P:Program.Types.input.beta_I0">
+<summary>
+ Parameter beta used in a_I0 integration.
+</summary>
+</member>
+<member name="P:Program.Types.input.alpha_I0">
+<summary>
+ Parameter alpha used for a_I0 and v_I0 in the Hughes&apos; alpha-method.
+</summary>
+</member>
+<member name="P:Program.Types.input.sp">
+<summary>
+ Solution parameters.
+</summary>
+</member>
+<member name="P:Program.Types.input.accelerogramTimeStep">
+<summary>
+ Size of accelerogram&apos;s time step [s].
+</summary>
+</member>
+<member name="P:Program.Types.input.accelerogram">
+<summary>
+ Accelerogram in form of time series with constant time step size.
+</summary>
+</member>
+<member name="P:Program.Types.input.es">
+<summary>
+ List of elements.
+</summary>
+</member>
+<member name="T:Program.Types.input">
+<summary>
+ All input data entering the analysis
+</summary>
+</member>
+<member name="P:Program.Types.unknowns.d">
+<summary>
+ Nodal displacement
+</summary>
+</member>
+<member name="P:Program.Types.unknowns.v">
+<summary>
+ Nodal velocity
+</summary>
+</member>
+<member name="P:Program.Types.unknowns.a">
+<summary>
+ Nodal acceleration
+</summary>
+</member>
+<member name="T:Program.Types.unknowns">
+<summary>
+ Fields a, v and d in single time step.
+</summary>
+</member>
+<member name="P:Program.Types.solParams.dt">
+<summary>
+ Time step used in Hughes integration.
+ (Prescribed accelerogram may have different time step)
+</summary>
+</member>
+<member name="P:Program.Types.solParams.gamma">
+<summary>
+ Parameter gamma in Hughes implicit integration scheme.
+</summary>
+</member>
+<member name="P:Program.Types.solParams.beta">
+<summary>
+ Parameter beta in Hughes implicit integration scheme.
+</summary>
+</member>
+<member name="P:Program.Types.solParams.alpha">
+<summary>
+ Parameter alpha in Hughes implicit integration scheme.
+</summary>
+</member>
+<member name="T:Program.Types.solParams">
+<summary>
+ Solution parameters type
+</summary>
+</member>
+<member name="P:Program.Types.element.material">
+<summary>
+ Element&apos;s material
+</summary>
+</member>
+<member name="P:Program.Types.element.cn">
+<summary>
+ List of code numbers. DOFs are indexed from 0 to nDOF-1.
+</summary>
+</member>
+<member name="P:Program.Types.element.A">
+<summary>
+ Element&apos;s cross section [m2]
+</summary>
+</member>
+<member name="P:Program.Types.element.L">
+<summary>
+ Element&apos;s length [m]
+</summary>
+</member>
+<member name="T:Program.Types.element">
+<summary>
+ Stores element data
+</summary>
+</member>
+<member name="P:Program.Types.material.rho">
+<summary>
+ Density [kg/m3]
+</summary>
+</member>
+<member name="P:Program.Types.material.E">
+<summary>
+ Young&apos;s modulus [Pa]
+</summary>
+</member>
+<member name="T:Program.Types.material">
+<summary>
+ Stores material properties
+</summary>
+</member>
+<member name="T:Program.Types">
+<summary>
+ SI units are used in this script (m, s, kg, N, Pa).
+</summary>
+</member>
 </members>
 </doc>

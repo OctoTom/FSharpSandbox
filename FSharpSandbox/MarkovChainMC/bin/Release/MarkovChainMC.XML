@@ -2,239 +2,40 @@
 <doc>
 <assembly><name>MarkovChainMC</name></assembly>
 <members>
-<member name="">
-
+<member name="M:Histogram.inverseCDF(Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Double,System.Double}},System.Double)">
+ <summary> Represents the inverse CDF </summary>
 </member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
+<member name="M:Histogram.observedCDF``1(Microsoft.FSharp.Collections.FSharpList{System.Tuple{``0,``0}},Microsoft.FSharp.Collections.FSharpList{System.Double})">
+ <summary>Gives the points of CDF based on given frequencies</summary>
+ <param name="bins">List of tuples containing left and right endpoint of bin.</param>
+ <param name="ncf">Normalized cumulative frequencies.</param>
 </member>
 <member name="P:MatrixModule.Matrix.CholeskyDecomp2x2">
 <summary>
  Cholesky decompositon of 2x2 symmetric matrix with 1.0s on diagonal (i.e. covariant matrix)
 </summary>
 </member>
-<member name="">
-
+<member name="M:MetropolisAlgorithm.Metropolis.getSamples(System.Int32)">
+<summary>
+ Generates samples
+ &lt;param name=&quot;count&quot;&gt;Number of samples to be generated&lt;/param&gt;
+</summary>
 </member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:MatrixModule">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:MetropolisAlgorithm">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
+<member name="T:MetropolisAlgorithm.Metropolis">
+<summary>
+ Represents a basic Metropolis-Hastings algorithm.
+ The algorithm generates samples withnin given domanin (defined by indicator) which are distributed according to the target distribution.
+</summary>
 </member>
 <member name="M:MyDistributions.normDistPointsCor(MatrixModule.Matrix,System.Double,System.Double)">
 <summary>
- Infinite sequence of samples of two corelated normally distributed random variables X1 and X2.
- The joint PDF is described by 2x2 Cov matrix and two values of mean mu.
+ Infinite sequence of samples of two correlated normally distributed random variables X1 and X2.
+ The joint PDF is described by 2x2 covariance matrix cov and pair of mean values mu.
 </summary>
 </member>
 <member name="P:MyDistributions.normDistPoints">
 <summary>
- Sequence of non-corelated 2D samples (u1, u2) with standard normal distribution.
+ Sequence of non-correlated 2D samples (u1, u2) with standard normal distribution.
 </summary>
 </member>
 <member name="P:MyDistributions.samplesND">
@@ -256,93 +57,6 @@
 <summary>
  .NET Random number generator
 </summary>
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:MyDistributions">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:Program">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:Sandbox">
-
 </member>
 </members>
 </doc>

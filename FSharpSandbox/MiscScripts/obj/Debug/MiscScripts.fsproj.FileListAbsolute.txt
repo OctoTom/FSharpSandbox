@@ -60,3 +60,13 @@ c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts
 c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\XPlot.Plotly.WPF.xml
 c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.dll
 c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\obj\Debug\MiscScripts.pdb
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\FParsec.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\FParsecCS.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Numerics.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Numerics.FSharp.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Symbolics.dll
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\FParsec.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\FParsecCS.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Numerics.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Numerics.FSharp.xml
+c:\Users\Tomas\OneDrive\OneSync\Projects\FSharpSandbox\FSharpSandbox\MiscScripts\bin\Debug\MathNet.Symbolics.xml

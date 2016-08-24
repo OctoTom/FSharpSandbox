@@ -2,30 +2,6 @@
 <doc>
 <assembly><name>RealMultiplying</name></assembly>
 <members>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
 <member name="T:Program.RealMultiplying">
 <summary>
  My experimental way of approximate real numbers multiplying.
@@ -34,9 +10,6 @@
  Multiply by one means to stay at the current number.
  Multiply by 1.6 means to move two steps up, etc.
 </summary>
-</member>
-<member name="T:Program">
-
 </member>
 </members>
 </doc>

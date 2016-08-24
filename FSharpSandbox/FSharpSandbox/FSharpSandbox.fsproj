@@ -78,6 +78,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <Compile Include="Program.fs" />
     <None Include="Program.fsx" />
     <None Include="Misc.fsx" />
     <None Include="ComputationExpressions.fsx" />
