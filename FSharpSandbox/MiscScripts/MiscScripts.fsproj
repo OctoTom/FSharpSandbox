@@ -51,6 +51,7 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
+    <None Include="EarthquakeFEM_FixedBoundary.fsx" />
     <None Include="GeoTools.fsx" />
     <None Include="packages.config" />
     <None Include="app.config" />
