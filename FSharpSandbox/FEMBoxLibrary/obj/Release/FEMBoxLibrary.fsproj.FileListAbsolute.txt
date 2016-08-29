@@ -1,7 +1,0 @@
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\bin\Release\FEMBoxLibrary.XML
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\bin\Release\FEMBoxLibrary.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\bin\Release\FEMBoxLibrary.pdb
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\bin\Release\FSharp.Core.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\bin\Release\FSharp.Core.xml
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\obj\Release\FEMBoxLibrary.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\FEMBoxLibrary\obj\Release\FEMBoxLibrary.pdb

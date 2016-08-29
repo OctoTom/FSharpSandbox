@@ -1,8 +1,0 @@
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\bin\Release\ToolsLibrary.XML
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\bin\Release\ToolsLibrary.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\bin\Release\ToolsLibrary.pdb
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\bin\Release\FSharp.Core.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\bin\Release\FSharp.Core.xml
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\obj\Release\ToolsLibrary.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\obj\Release\ToolsLibrary.pdb
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ToolsLibrary\obj\Release\ToolsLibrary.fsprojResolveAssemblyReference.cache

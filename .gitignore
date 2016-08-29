@@ -9,6 +9,13 @@
 *.userosscache
 *.sln.docstates
 
+# IntelliSense files (these are rebuild when needed)
+*.VC.db
+*.sdf
+# Other filed that are not necessary and can be rebuit
+# Solution options
+*.suo
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

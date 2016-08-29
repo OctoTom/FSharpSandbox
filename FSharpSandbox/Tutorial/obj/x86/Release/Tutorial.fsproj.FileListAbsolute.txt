@@ -1,7 +1,0 @@
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Release\Tutorial.XML
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Release\Tutorial.exe
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Release\Tutorial.pdb
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Release\FSharp.Core.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\bin\Release\FSharp.Core.xml
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\obj\x86\Release\Tutorial.exe
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\Tutorial\obj\x86\Release\Tutorial.pdb

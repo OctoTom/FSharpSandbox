@@ -1,8 +1,0 @@
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\ModulesAndNamespaces.exe.config
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\ModulesAndNamespaces.XML
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\ModulesAndNamespaces.exe
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\ModulesAndNamespaces.pdb
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\FSharp.Core.dll
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\bin\Release\FSharp.Core.xml
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\obj\x86\Release\ModulesAndNamespaces.exe
-C:\Users\Tomas\SkyDrive\Tech\Projects\FSharpSandbox\ModulesAndNamespaces\obj\x86\Release\ModulesAndNamespaces.pdb

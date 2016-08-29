@@ -51,7 +51,6 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <None Include="EarthquakeFEM_FixedBoundary.fsx" />
     <None Include="GeoTools.fsx" />
     <None Include="packages.config" />
     <None Include="app.config" />
@@ -69,6 +68,7 @@
     <None Include="MaxwellCalibration.fsx" />
     <None Include="Strata.fsx" />
     <None Include="EarthquakeFEM.fsx" />
+    <None Include="EarthquakeFEM_FixedBoundary.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FParsec">
