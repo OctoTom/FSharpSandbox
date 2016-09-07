@@ -66,6 +66,7 @@
     <None Include="TriLayerModel.fsx" />
     <None Include="SimpleVisco.fsx" />
     <None Include="MaxwellCalibration.fsx" />
+    <None Include="Fourier.fsx" />
     <None Include="Strata.fsx" />
     <None Include="EarthquakeFEM.fsx" />
     <None Include="EarthquakeFEM_FixedBoundary.fsx" />

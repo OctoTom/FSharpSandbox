@@ -1,9 +1,0 @@
-------------------------------------------------------------
-2013-08-28 added FSharp.Charting
-FSharp.Charting library installed via NuGet.
-In the F# code add this line to use the chartsing functions:
-
-#load "../packages/FSharp.Charting.0.84/FSharp.Charting.fsx"
-open FSharp.Charting
-Chart.Line [ for x in 1.0 .. 100.0 -> (x, x ** 2.0) ]
--------------------------------------------------------------
