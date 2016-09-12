@@ -1066,3 +1066,8 @@ module DigitSeries =
   /// Why are the odd numbers twice as common for (0, 1)?
   /// Why there are no zeros for (1, 3)?
   [0..9] |> List.map (fun i -> series |> Seq.filter (fun a -> a = i) |> Seq.length)
+
+module DifferentLengthSeqs =
+ let a = seq{0 .. 1}
+ let b = seq{0 .. 2}
+ Seq.map2 (+) a b // Yes, you can map2 two sequences of different lengths.
