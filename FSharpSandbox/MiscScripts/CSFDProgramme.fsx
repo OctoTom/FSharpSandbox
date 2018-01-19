@@ -1,5 +1,4 @@
-﻿#load @"c:\Users\Tomas\Scripts\Paket\LoadPackages.fsx"
-#r @"c:\Users\Tomas\OneDrive\OneSync\Projects\CommonTools\CommonTools\Bin\Release\CommonTools.dll"
+﻿#load @"c:\Users\Tomas\Scripts\Paket\References.fsx"
 
 /// Downloads the progremme of cinnemas in Prague from the CSFD database.
 /// Open the page in browser.
@@ -33,3 +32,4 @@ let getNameYear (line: string) =
 let action (name, year) = printfn "%s %s" name year
 let noDuplicates = movieLines |> List.map getNameYear |> Set.ofList |> Set.toList
 noDuplicates |> List.sortBy snd |> List.iter action
+

@@ -1,5 +1,4 @@
-﻿#load @"c:\Users\Tomas\Scripts\Paket\LoadPackages.fsx"
-#r @"c:\Users\Tomas\OneDrive\OneSync\Projects\CommonTools\CommonTools\bin\Release\CommonTools.dll"
+﻿#load @"c:\Users\Tomas\Scripts\Paket\References.fsx"
 
 open MathNet.Numerics.Distributions
 open CommonTools.RInterop
@@ -13,7 +12,7 @@ let sigmaTheta = 0.2
 let sigmaY = 0.05 // Measurement error
 
 // Limits for the parameters
-// These values serves in the Bayesian model as the liminst in the uniform prior distributions.
+// These values serves in the Bayesian model as the limits in the uniform prior distributions.
 let minMuTheta, maxMuTheta = 5.0, 20.0
 let minSigmaTheta, maxSigmaTheta = 0.05, 1.0
 let minSigmaY, maxSigmaY = 0.02, 0.08
@@ -33,7 +32,7 @@ let ys = samplesTheta |> Seq.map modelFunc |> Seq.map sampleY |> Seq.collect id 
 let indicator = [for i in [1..numThetaSamples] do for j in [1..numYForOneTheta] do yield i]
 
 // Save to R file
-let fileName = @"C:\Users\Tomas\Sync\Anicka\model-data.R"
+let fileName = @"C:\Users\Tomas\Sync\model-data.R"
 let RData =
   [
     RFloatVector("ys", ys)

@@ -1,7 +1,4 @@
-﻿#r @"c:\Users\Tomas\Sync\Timber\LepenyNosnik\packages\MathNet.Numerics.3.11.0\lib\net40\MathNet.Numerics.dll"
-#r @"c:\Users\Tomas\Sync\Timber\LepenyNosnik\packages\MathNet.Numerics.FSharp.3.11.0\lib\net40\MathNet.Numerics.FSharp.dll"
-#r @"c:\Users\Tomas\OneDrive\OneSync\Projects\CommonTools\CommonTools\Bin\Release\CommonTools.dll"
-#load @"c:\Users\Tomas\Scripts\Paket\LoadPackages.fsx"
+﻿#load @"c:\Users\Tomas\Scripts\Paket\References.fsx"
 
 open System
 open System.Runtime.InteropServices
