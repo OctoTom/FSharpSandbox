@@ -252,3 +252,5 @@ module ComplExp =
   let a = System.Numerics.Complex(-0.5, 10.0)
   xs |> List.map (f a) |> List.map (fun x -> x.Real) |> List.zip xs |> FSharp.Charting.Chart.Line
 
+
+

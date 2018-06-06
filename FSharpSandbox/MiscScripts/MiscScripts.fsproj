@@ -56,15 +56,13 @@
     <None Include="HoekBrown.fsx" />
     <None Include="TestProAnicku.fsx" />
     <None Include="CSFDProgramme.fsx" />
-    <None Include="TriLayerElement.fsx" />
-    <None Include="TriLayerModel.fsx" />
-    <None Include="SimpleVisco.fsx" />
-    <None Include="MaxwellCalibration.fsx" />
     <None Include="Fourier.fsx" />
     <None Include="Strata.fsx" />
+    <None Include="ResponseSpectrum.fsx" />
     <None Include="EarthquakeFEM.fsx" />
     <None Include="EarthquakeFEM_FixedBoundary.fsx" />
     <None Include="Exams.fsx" />
+    <None Include="ExCalibreSoilTable.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FParsec">

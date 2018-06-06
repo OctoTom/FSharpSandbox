@@ -89,7 +89,9 @@ module Fourier_TEST =
   let newSpectrum = newHistory |> historyToSpectrum
 
 
-/// Eurocode spectrum in time domain.
+/// Eurocode spectrum in SDOF period domain.
+/// Horizontal elastic response spectrum
+/// Defined in Eurocode 8: Design of structures for earthquake resistance, section 3.2.2.2.
 module EurocodeSpectrum =
   // For given parameters returns spectrum as a function of time period T [s].
   let getSpectrum (tb, tc, td, eta, ag, s) =
@@ -107,7 +109,7 @@ module EurocodeSpectrum_TEST =
   let times = [0.0..0.01..5.0]
   times |> List.mapio s |> Chart.Line
 
-/// Returns sequence of random phases. The sequence is cashed, i.e. it is the same whan enumerated multiple times.
+/// Returns sequence of random phases. The sequence is cashed, i.e. it has the same items when enumerated multiple times.
 /// For two different seed values two different sequences are generated.
 let randomPhases seed =
   let rnd = System.Random(seed)
@@ -163,7 +165,7 @@ let getEnvelopeFunc eta epsilon tw =
   let func t = a * t**b * Math.Exp (-c * t)
   func
 // Kumar's values
-let envelopeFunc = getEnvelopeFunc 0.1 0.2 20.0
+let envelopeFunc = getEnvelopeFunc 0.01 0.3 20.0
 // Plot it.
 [0.0 .. 0.1 .. 20.0] |> List.mapio envelopeFunc |> Chart.FastLine |> Chart.WithXAxis(Min = 0.0)
 
@@ -278,6 +280,6 @@ ms7 |> Fourier.spectrumToHistory |> plotHistory (fun x -> x.Real)
 
 
 
-// Is supperposition of two modulated signal modulated? //
+// Is supperposition of two modulated signals modulated? //
 // Yes, it is.
 // ---------------------------------------------------- //

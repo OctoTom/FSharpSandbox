@@ -16,15 +16,15 @@
 'a'
 "abc"
 true
-[1;2] // 
-(1, 1.0)
+[1;2] // List constructed from literals 
+(1, 1.0) // Tuple constructed from literals
 () // This is the only value the object of the unit can have.
 null // null is introduced only for compatibility with .NET. It is not idiomatic since it is not a value. 
 
-(fun x -> x) = (fun y -> y)
-
 // Anonymous functions, aka function literals, lambda expressions.
+// One of the most frequent keywords: "fun"
 fun x -> x // Identity function.
+fun x -> 42.0 // Constant function
 fun x -> [x] // Wraps x into single-element list.
 fun x -> (x, x) // 
 fun () -> x // Value x is not defined.
@@ -82,9 +82,12 @@ fun x y -> [x; y]
 let a = 42
 let a = 43 // Duplicate definition of 'a'.
 let b =
-  let third = 14 // Any number of let bindings
+  let oneThird = 14 // Any number of let bindings
   let twoThirds = 28
-  third + twoThirds // The last expression is resulting value of the entire 'let' binding.
+  1000
+  oneThird
+  oneThird + twoThirds // The last expression is resulting value of the entire 'let' binding.
+
 // Bind value (anonynous function) to name. Function f is no longer anonymous
 let incr = fun x -> x + 1
 // or equivalentyly define named function. 
