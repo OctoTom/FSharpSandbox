@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="EarthquakeFEM.fsx" />
+    <None Include="EarthquakeFEM_FixedBoundary.fsx" />
+    <None Include="Strata.fsx" />
+    <None Include="Eurocode8.fsx" />
+    <None Include="Kumar.fsx" />
+    <None Include="ResponseSpectrum.fsx" />
+    <None Include="Fourier.fsx" />
+    <None Include="ArtificialAccelerogram.fsx" />
+  </ItemGroup>
+
+</Project>
