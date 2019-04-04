@@ -21,9 +21,9 @@ let pi = System.Math.PI
 // Play around with FFT. //
 // --------------------- //
 module Spectrum =
-  /// Spectrum type. Frequensies are temporal, not angular.
+  /// Spectrum type. Frequensies are ordinary, not angular.
   type spectrum = {freqBins : float list; spectralAmplitudes : Complex list}
-  /// Returns the highest temporal frequency of the spectrum (the sampling frequency).
+  /// Returns the highest ordinary frequency of the spectrum (the sampling frequency).
   let getFs (s : spectrum) = s.freqBins |> List.rev |> List.head
   /// Returns number of bins in the spectrum.
   let getN (s : spectrum) = s.freqBins |> List.length
@@ -65,7 +65,7 @@ module Fourier =
     let res = (list |> List.toArray).Clone() :?> (Complex [])
     MathNet.Numerics.IntegralTransforms.Fourier.Inverse(res, options) 
     res |> Array.toList
-  /// Transforms history to spectrum. Frequencies are temporal, not angular. 
+  /// Transforms history to spectrum. Frequencies are ordinary, not angular. 
   let historyToSpectrum (h : History.history) : Spectrum.spectrum =
     let dt = h.times |> List.tail |> List.head
     let fs = 1.0 / dt
@@ -82,12 +82,12 @@ module Fourier =
     let amplitudes = s.spectralAmplitudes |> ffti
     {times = times; amplitudes = amplitudes}
 
-module Fourier_TEST =
-  open Fourier
-  open History
-  open Spectrum
-  let history = {times = [0.0 .. 2.0 .. 6.0]; amplitudes = [0.0; 1.0; 2.0; 3.0] |> List.map c}
-  let spectrum = history |> Fourier.historyToSpectrum
-  let newHistory = spectrum |> spectrumToHistory
-  let newSpectrum = newHistory |> historyToSpectrum
+//module Fourier_TEST =
+//  open Fourier
+//  open History
+//  open Spectrum
+//  let history = {times = [0.0 .. 2.0 .. 6.0]; amplitudes = [0.0; 1.0; 2.0; 3.0] |> List.map c}
+//  let spectrum = history |> Fourier.historyToSpectrum
+//  let newHistory = spectrum |> spectrumToHistory
+//  let newSpectrum = newHistory |> historyToSpectrum
 
