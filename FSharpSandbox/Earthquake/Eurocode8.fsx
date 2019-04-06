@@ -19,7 +19,8 @@ module EurocodeSpectrum =
 
 module EurocodeSpectrum_TEST =
   // These values are for Type A ground
-  let s = EurocodeSpectrum.getHorizontalResponseSpectrum (0.15, 0.4, 2.0, 1.0, 1.0, 1.0)
-  let times = [0.0..0.01..5.0]
-  times |> CommonTools.List.mapio s |> Chart.Line |> Chart.Show
+  let run () =
+    let s = EurocodeSpectrum.getHorizontalResponseSpectrum (0.15, 0.4, 2.0, 1.0, 1.0, 1.0)
+    let times = [0.0..0.01..5.0]
+    times |> CommonTools.List.mapio s |> Chart.Line |> Chart.Show
 

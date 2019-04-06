@@ -37,7 +37,9 @@ module History =
   /// History type.
   type history = {times : float list; amplitudes : Complex list}
   /// Returns the duration of the history.
-  let getDuration (h : history) = h.times |> List.rev |> List.head
+  let getDuration (h : history) = h.times |> List.last
+  /// Returns the duration of the history.
+  let getTimeStep (h : history) = h.times.Tail.Head - h.times.Head
   /// Returns number of time points.
   let getN (h : history) = h.times |> List.length
   /// Rerurns history with only the real parts of the imput history and zero imaginary parts.
