@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Veronika02.fsx" />
+    <None Include="Veronika01.fsx" />
+    <None Include="ASCReader.fsx" />
     <None Include="RealAccelerogram.fsx" />
     <Compile Include="Program.fs" />
   </ItemGroup>

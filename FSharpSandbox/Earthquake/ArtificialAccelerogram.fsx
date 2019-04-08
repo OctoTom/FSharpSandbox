@@ -98,8 +98,8 @@ let iteration designRSFunc xi fs spectrum =
 
 // Returns infinite (lazy-evaluated) sequence of Fourier spectrums
 // that generate history that is compatible with prescribed responce spectrum.
-let generateSpectrumCompatibleAccelerogram designRSFunc xi n fs =
-  let initialSpectrum = createSpectrum 0 n fs (fun x -> 1.0)
+let generateSpectrumCompatibleAccelerogram designRSFunc xi n fs seed =
+  let initialSpectrum = createSpectrum seed n fs (fun x -> 1.0)
   // MODULATE the initial history to introduce  begining, strong-motion and ending stages of the earthquake
   let initialHistory = Fourier.Fourier.spectrumToHistory initialSpectrum
   let duration = initialHistory.times |> List.max
