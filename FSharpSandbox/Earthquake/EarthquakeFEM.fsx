@@ -141,7 +141,8 @@ let interpolate DT (data : float list) dt =
   Seq.initInfinite initializer |> Seq.takeWhile (fun x -> x.IsSome) |> Seq.choose id |> Seq.toList
 
 /// Save displacement fields in each timestep in
-let savePlotsWithTotalFields folderPath takeEvery max coords fields =
+let savePlotsWithFields folderPath takeEvery max coords fields =
+  // Delete existing .png files
   (new DirectoryInfo(folderPath)).EnumerateFiles("*.png") |> Seq.iter (fun file -> file.Delete())
   let action i x =
     if i % takeEvery = 0 then
@@ -195,10 +196,13 @@ let solve input =
 
   /// Integrates accelerogram (with equidistant points)
   /// and generates time series of velocity and displacement (both starting at 0.0).
+  /// Standard parameters are beta = 0.25 and gamma = 0.5 
   let integrateAcceleration (beta, gamma) dt aList =
     let folder (a : float list, v : float list, d : float list) a1 =
       match a, v, d with
       | a0 :: _, v0 :: _, d0 :: _ ->
+        //printfn "%A, %A, %A" a0 v0 d0
+        //printfn "%A, %A, %A" dt gamma beta
         let v1 = v0 + dt * ((1.0 - gamma) * a0 + gamma * a1)
         let d1 = d0 + dt * v0 + dt * dt / 2.0 * ((1.0 - 2.0 * beta) * a0 + 2.0 * beta * a1)
         a1 :: a, v1 :: v, d1 :: d
@@ -206,21 +210,9 @@ let solve input =
     let a, v, d = List.fold folder ([], [], []) aList // Value a is the same as aList. No need to return it.
     List.rev v, List.rev d
 
-  // Prepare the externally applied acceleration, velocity and displacement in form of time series.
-  // Fraction of time. Just for the test with fine steps used for integration of acceleration.
-  let dtFraction = 1
-  printfn "Interpolate acceleration started."
-  let a_I0_fine = interpolate accelerogramTimeStep accelerogram (sp.dt / float dtFraction)
-  printfn "Integrate acceleration started."
-  let v_I0_fine, d_I0_fine = integrateAcceleration (beta_I0, gamma_I0) (sp.dt / float dtFraction) a_I0_fine // 
-  // Gets every i-th element of the list
-  let getEvery every list = 
-    list |> List.mapi (fun i x -> if i % every = 0 then Some x else None) |> List.choose id
-  let a_I0 = a_I0_fine |> getEvery dtFraction
-  let v_I0 = v_I0_fine |> getEvery dtFraction
-  let d_I0 = d_I0_fine |> getEvery dtFraction
-
-
+  let a_I0 = accelerogram
+  let v_I0, d_I0 = integrateAcceleration (beta_I0, gamma_I0) sp.dt accelerogram 
+  
   /// Returns list of values expressed at t_(n+alpha)
   let getAlphaValues alpha list =
     let mapNeighbours mapping list =
@@ -228,16 +220,6 @@ let solve input =
       let listOfSnd = list |> List.tail
       List.map2 mapping listOfFst listOfSnd 
     list |> mapNeighbours (fun x0 x1 -> (1.0 + alpha) * x1 - alpha * x0)
-
-  /// List of intermediate (n+beta) values of prescribed acceleration.
-  printfn "GetAlphaValues started."
-  let a_I0alpha = getAlphaValues alpha_I0 a_I0
-  /// List of intermediate (n+beta) values of prescribed velocity.
-  printfn "GetAlphaValues started."
-  let v_I0alpha = getAlphaValues alpha_I0 v_I0
-  /// List of intermediate (n+beta) values of prescribed displacement. (not needed for solution, just for completeness)
-  printfn "GetAlphaValues started."
-  let d_I0alpha = getAlphaValues alpha_I0 d_I0
 
   /// LOOP OF HHT ALPHA-METHOD
   /// Initial state. It consists of zero nodal a, v and d.
@@ -264,16 +246,19 @@ let solve input =
       let a1 = matrixA.Solve(rhs)
       let v1 = v0 + dt * ((1.0 - gamma) * a0 + gamma * a1)
       let d1 = d0 + dt * v0 + dt * dt / 2.0 * ((1.0 - 2.0 * beta) * a0 + 2.0 * beta * a1)
+      //printfn "%A" rhs
+      //printfn "%A" matrixA
+      //printfn "%A" a1
+      //printfn "%A" v1
+      //printfn "%A" d1
       {t = t1; a = a1; v = v1; d = d1} :: state
     | _ -> failwith "Empty list of unknowns."
-
   /// Unfold the time series of a, v and d fields (represented as vectors).
   /// The values are the u_r, i.e. the values relative to the incomming wave signal.
   printfn "Folding started."
-  let results = List.fold folder initState (List.zip a_I0alpha v_I0alpha) |> List.rev
+  let results = List.fold folder initState (List.zip a_I0 v_I0) |> List.rev
   printfn "Folding finished."
-  //let results = List.fold folder initState (List.zip a_I0 v_I0) |> List.rev
-
+ 
   /// Time series of total fields a, v and d.
   let totalResults =
     /// Takes unknowns (i.e. vectors a, v and d) and adds the incoming wave value at this time step.
@@ -284,11 +269,11 @@ let solve input =
       let vT = v |> Vector.map (fun x -> x + vI0)
       let dT = d |> Vector.map (fun x -> x + dI0)
       {t = t; a = aT; v = vT; d = dT}
-    let avd_I0 = List.zip3 a_I0alpha v_I0alpha d_I0alpha
+    let avd_I0 = List.zip3 a_I0 v_I0 d_I0
     //if results.Length <> avd_I0.Length then failwith (sprintf "results.Length = %A, avd_I0.Length = %A" results.Length avd_I0.Length)
     List.map2 mapping (results |> List.rev |> List.tail |> List.rev) avd_I0
   /// Return output record
-  {relativeFields = results; totalFields = totalResults; inputSignal = (List.zip3 a_I0 v_I0 d_I0); inputSignal_alpha = (List.zip3 a_I0alpha v_I0alpha d_I0alpha); numDof = numDOF}
+  {relativeFields = results; totalFields = totalResults; inputSignal = (List.zip3 a_I0 v_I0 d_I0); inputSignal_alpha = (List.zip3 a_I0 v_I0 d_I0); numDof = numDOF}
  
 
 /// Returns wave speed for material
@@ -300,41 +285,28 @@ let getEffectiveElementLength (m : material) dt courantNumber = dt * getVaveSpee
 //============//
 // Input data // 
 //============//
+
 let input = 
   // Material
-  let m1 = {E = 2.0e9; rho = 2.0e3}
-  let m2 = {E = 5.0e8; rho = 2.0e3}
-  let ms = [m1; m2]
-  let alpha_I0 = -1.0 / 3.0 // -0.3333 -- 0.0
+  let m1 = {E = 5.0e8; rho = 2.0e3}
+  let alpha_I0 = 0.0 // -0.3333 -- 0.0
   let beta_I0 = (1.0 - alpha_I0)**2.0 / 4.0 //  0.4444 -- 0.25
   let gamma_I0 = (1.0 - 2.0 * alpha_I0) / 2.0 //  0.8333 -- 0.5
   //
-  let timeStep = 0.001
-  let courantNumber = 1.0 / sqrt 3.0 // The larger CN the smaller effective element length (for a fixed time step).
-  let domainLengths = [100.0; 50.0]
-  let elemCounts = List.map2 (fun m l -> l / getEffectiveElementLength m timeStep courantNumber |> int) ms domainLengths
-  let getElementInDomain i =
-    let initizer j = {material = ms.[i]; A = 1.0; L = getEffectiveElementLength ms.[i] timeStep courantNumber; cn = [-1;-1]}
-    List.init elemCounts.[i] initizer
-  let accelerogramTimeStep = 0.001
-  let timeSteps = [0.0 .. accelerogramTimeStep .. 1.0]
-  //let accelerogram = [0.0; 1.0; -2.0; 1.0; 0.0] @ List.init 40 (fun _ -> 0.0)
-  let accelerogram = timeSteps |> List.map (fun t -> 0.01 * sin (100.0 * t))
-  accelerogram |> Chart.FastPoint
+  let timeStep = 0.01
   // Return record of type "input"
   {
     /// List of elements
-    es =
-      let elementsWithoutCNs = [0 .. ms.Length - 1] |> List.map getElementInDomain |> List.reduce (@) // Without code numbers
-      elementsWithoutCNs |> List.mapi (fun i e -> {e with cn = [i; i+1]})
+    es = 
+      [0 .. 3] |> List.map (fun i -> { L = 2.0; A = 1.0; cn = [i; i+1]; material = m1})
     /// Prescribed accelerogram time step
-    accelerogramTimeStep = accelerogramTimeStep
+    accelerogramTimeStep = 0.01
     /// Prescribed accelerogram data
-    accelerogram = accelerogram
+    accelerogram = [0.0; 1.0; -2.0; 1.0; 0.0] @ List.init 80 (fun _ -> 0.0)
     /// Solution parameters
     sp =
       // Alpha = -1/3 works better than 0.
-      let alpha = -0.1 // Parameter alpha belongs to <-1/3, 0>
+      let alpha = 0.0 // Parameter alpha belongs to <-1/3, 0>
       {
         alpha = alpha
         beta = (1.0 - alpha)**2.0 / 4.0
@@ -342,9 +314,10 @@ let input =
         dt = timeStep
       }
     alpha_I0 = alpha_I0
-    beta_I0 = alpha_I0
-    gamma_I0 = alpha_I0
+    beta_I0 = beta_I0
+    gamma_I0 = gamma_I0
   } // End of input
+
 let numElems = input.es.Length
 let totalTime = float input.accelerogram.Length * input.accelerogramTimeStep // s
 let numTimeSteps = totalTime / input.sp.dt 
@@ -352,14 +325,25 @@ let numTimeSteps = totalTime / input.sp.dt
 /// Run the analysis for given input
 let output = solve input
 
+let step = 2
+printfn "%A" output.relativeFields.[step].t
+printfn "%A" (output.relativeFields.[step].a |> Seq.toList)
+printfn "%A" (output.relativeFields.[step].v |> Seq.toList)
+printfn "%A" (output.relativeFields.[step].d |> Seq.toList)
+printfn "%A" (output.inputSignal.[step] |> CommonTools.Misc.first)
+printfn "%A" (output.inputSignal.[step] |> CommonTools.Misc.second)
+printfn "%A" (output.inputSignal.[step] |> CommonTools.Misc.third)
+printfn "%A" (output.totalFields .[step].a |> Seq.toList)
+printfn "%A" (output.totalFields.[step].v |> Seq.toList)
+printfn "%A" (output.totalFields.[step].d |> Seq.toList)
+
 /// Nodal coordinates computed from elements lengths
 let nodalCoords = input.es |> List.fold (fun state e -> state.Head + e.L :: state) [0.0] |> List.rev
-/// Save .png plots
-do savePlotsWithTotalFields "c:/Users/Tomas/Temp/" 20 0.001 nodalCoords output.totalFields
-
 
 /// Save .png plots
-do savePlotsWithTotalFields "c:/Users/Tomas/Temp/" 5 0.01 nodalCoords output.relativeFields
+do savePlotsWithFields "c:/Users/Tomas/Temp/" 1 0.0001 nodalCoords output.totalFields
+/// Save .png plots
+//do savePlotsWithFields "c:/Users/Tomas/Temp/" 5 0.0001 nodalCoords output.relativeFields
 
 /// Plot time evolution of displacement in all nodes
 [for i in 0 .. 1 .. output.totalFields.Head.a.Count - 1
@@ -368,7 +352,7 @@ do savePlotsWithTotalFields "c:/Users/Tomas/Temp/" 5 0.01 nodalCoords output.rel
 
 /// Input signal. Acceleration, velocity and displacement. Ad hoc scaling.
 let printInputSignal =
-  let takeFirst = 100
+  let takeFirst = 40
   let inputSignal = output.inputSignal |> List.take takeFirst
   let inputSignal_alpha = output.inputSignal_alpha |> List.take takeFirst
   [
@@ -380,46 +364,7 @@ let printInputSignal =
     Chart.FastLine(inputSignal_alpha |> List.map (fun (_, _, d) -> 10000.0*d), Name= "d_I0a")
   ] |> Chart.Combine |> Chart.WithLegend(true)
 
-//=====================//
-// Input data - BACKUP // 
-//=====================//
-let input_BACKUP = 
-  // Material
-  let m1 = {E = 2.0e11; rho = 2.0e3}
-  let m2 = {E = 5.0e8; rho = 2.0e3}
-  let ms = [m1; m2]
-  let alpha_I0 = -1.0 / 3.0 // -0.3333 -- 0.0
-  let beta_I0 = (1.0 - alpha_I0)**2.0 / 4.0 //  0.4444 -- 0.25
-  let gamma_I0 = (1.0 - 2.0 * alpha_I0) / 2.0 //  0.8333 -- 0.5
-  //
-  let timeStep = 0.0005
-  let courantNumber = 1.0 / sqrt 3.0 // The larger CN the smaller effective element length (for a fixed time step).
-  let domainLengths = [100.0; 50.0]
-  let elemCounts = List.map2 (fun m l -> l / getEffectiveElementLength m timeStep courantNumber |> int) ms domainLengths
-  let getElementInDomain i =
-    let initizer j = {material = ms.[i]; A = 1.0; L = getEffectiveElementLength ms.[i] timeStep courantNumber; cn = [-1;-1]}
-    List.init elemCounts.[i] initizer
-  // Return record of type "input"
-  {
-    /// List of elements
-    es =
-      let elementsWithoutCNs = [0 .. ms.Length - 1] |> List.map getElementInDomain |> List.reduce (@) // Without code numbers
-      elementsWithoutCNs |> List.mapi (fun i e -> {e with cn = [i; i+1]})
-    /// Prescribed accelerogram time step
-    accelerogramTimeStep = 0.01
-    /// Prescribed accelerogram data
-    accelerogram = [0.0; 1.0; -2.0; 1.0; 0.0] @ List.init 40 (fun _ -> 0.0)
-    /// Solution parameters
-    sp =
-      // Alpha = -1/3 works better than 0.
-      let alpha = -0.1 // Parameter alpha belongs to <-1/3, 0>
-      {
-        alpha = alpha
-        beta = (1.0 - alpha)**2.0 / 4.0
-        gamma = (1.0 - 2.0 * alpha) / 2.0
-        dt = timeStep
-      }
-    alpha_I0 = alpha_I0
-    beta_I0 = alpha_I0
-    gamma_I0 = alpha_I0
-  } // End of input
+
+
+
+

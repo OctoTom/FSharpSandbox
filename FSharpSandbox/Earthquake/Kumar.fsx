@@ -16,10 +16,12 @@ let getEnvelopeFunc eta epsilon tw =
   func
 
 /// Kumar's eta parameter
-let eta_default = 0.01
+let eta_default = 0.05
+//let eta_default = 0.01
 
-/// Kumar's 
-let epsilon_default = 0.3
+/// Kumar's epsilon parameter
+let epsilon_default = 0.2
+//let epsilon_default = 0.3
 
 /// Kumar's defult duration time
 let tw_default = 20.0

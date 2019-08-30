@@ -96,14 +96,17 @@ let iteration designRSFunc xi fs spectrum =
   newSpectrum
 
 
+
 // Returns infinite (lazy-evaluated) sequence of Fourier spectrums
 // that generate history that is compatible with prescribed responce spectrum.
 let generateSpectrumCompatibleAccelerogram designRSFunc xi n fs seed =
   let initialSpectrum = createSpectrum seed n fs (fun x -> 1.0)
-  // MODULATE the initial history to introduce  begining, strong-motion and ending stages of the earthquake
+  // MODULATE the initial history to introduce rise stage, strong-motion stage and decay stage.
   let initialHistory = Fourier.Fourier.spectrumToHistory initialSpectrum
   let duration = initialHistory.times |> List.max
-  let modulationFunc = Kumar.getEnvelopeFunc Kumar.eta_default Kumar.epsilon_default duration
+  let modulationFunc_kumar = Kumar.getEnvelopeFunc Kumar.eta_default Kumar.epsilon_default duration
+  let modulationFunc_none t = 1.0
+  let modulationFunc = modulationFunc_kumar
   let modulatedComplexAmplitudes =
     (initialHistory.times, initialHistory.amplitudes)
     ||> List.map2 (fun t c -> c * Fourier.c(modulationFunc t))
@@ -117,4 +120,70 @@ let generateSpectrumCompatibleAccelerogram designRSFunc xi n fs seed =
     printfn "Iteration %A" i
     Some(newSpectrum, (newSpectrum, i+1))
   Seq.unfold generator (modulatedSpectrum, 0)
+
+
+// Run it
+let dir = __SOURCE_DIRECTORY__
+let typeD = Eurocode8.EurocodeSpectrum.getHorizontalResponseSpectrum (0.2, 0.8, 2.0, 1.0, 1.0, 1.35)
+let getArtificialHistory seed = 
+  let sqn = generateSpectrumCompatibleAccelerogram typeD 0.05 1000 50.0 seed
+  let num_iter = 6
+  let spectrum = sqn |> Seq.skip num_iter |> Seq.head
+  let history = spectrum |> Fourier.Fourier.spectrumToHistory
+  // Get real times and real amplitudes
+  let points = (history.times, history.amplitudes |> List.map (fun c -> c.Real)) ||> List.zip
+  // Ad Hoc:
+  let rs = getResponseSpectrumForFourierSpectrum 0.05 spectrum
+  // Leave the first part of spectrum, rubbish.
+  rs ||> List.map2 (fun a b -> sprintf "%A,%A" a b) |> List.take 500 |> CommonTools.IO.writeLines (dir + @"\spectrum_kumar.csv")
+  points
+
+
+let saveArtificialHistory_points points =
+  let path = dir + @"\history_kumar.csv"
+  //let path = dir + @"\history_none.csv"
+  let pointToString point = 
+    sprintf "%A,%A" (fst point) (snd point)
+  let lines = "t[s],a[g]" :: List.map pointToString points
+  CommonTools.IO.writeLines path lines
+
+let points = getArtificialHistory 0 
+FSharp.Charting.Chart.Line(points)
+saveArtificialHistory_points points
   
+let modulationFunc_kumar = Kumar.getEnvelopeFunc Kumar.eta_default Kumar.epsilon_default 20.0
+let modulation_points = [0.0 .. 0.1 .. 20.0] |> CommonTools.List.mapio modulationFunc_kumar
+FSharp.Charting.Chart.Line modulation_points
+
+// Read the data and draw chart for NMM paper
+let path1 = dir + @"\history_none.csv"
+let path2 = dir + @"\history_kumar.csv"
+
+let readData path = 
+  let lines = path |> CommonTools.IO.readLines |> Seq.toList |> List.tail // Skip header line
+  let parseLine (s:string) =
+    let array = s.Split([|','|]) 
+    double(array.[0]), double(array.[1])
+  let pairs = lines |> List.map parseLine
+  pairs
+
+let pairs1 = readData path1
+let pairs2 = readData path2
+
+
+let chart =
+  [
+  FSharp.Charting.Chart.Line(pairs1)
+  FSharp.Charting.Chart.Line(pairs2)
+  ]
+  |> FSharp.Charting.Chart.Combine
+
+// spectrum
+let pairs3 = readData (dir + @"\spectrum_kumar.csv")
+let pairs4 = readData (dir + @"\response-spectrum_type-D.csv")
+[
+FSharp.Charting.Chart.Line(pairs3)
+FSharp.Charting.Chart.Line(pairs4)
+]|>FSharp.Charting.Chart.Combine
+
+

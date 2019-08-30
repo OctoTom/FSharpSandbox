@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="AdjustAccelerogram_NMM.fsx" />
+    <None Include="AdjustAccelerogram.fsx" />
+    <None Include="AdjustAccelerogram_TESTS.fsx" />
     <None Include="Veronika02.fsx" />
     <None Include="Veronika01.fsx" />
     <None Include="ASCReader.fsx" />

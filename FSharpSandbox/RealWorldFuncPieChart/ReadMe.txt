@@ -1,1 +1,0 @@
-This is a sample program adopted from Read World Functional Programing book.
